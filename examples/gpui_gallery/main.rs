@@ -8,6 +8,7 @@ mod button;
 mod overlays_demo;
 mod overlays_dialog;
 mod overlays_menu;
+mod overlays_tooltip;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -25,14 +26,16 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![
+    let mut pages = vec![
         button::page(window, cx),
         overlays_menu::dropdown_menu_page(window, cx),
         overlays_menu::select_page(window, cx),
         overlays_dialog::sonner_page(window, cx),
         overlays_dialog::dialog_page(window, cx),
         overlays_dialog::sheet_page(window, cx),
-    ]
+    ];
+    pages.extend(overlays_tooltip::pages(window, cx));
+    pages
 }
 
 struct Gallery {

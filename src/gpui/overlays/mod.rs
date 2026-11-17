@@ -32,8 +32,10 @@ use crate::components::overlays::place;
 
 mod dialog;
 mod menu;
+pub mod popover;
 mod select;
 mod toast;
+pub mod tooltip;
 
 pub use crate::components::overlays::menu::{ItemKind, MenuEntry, MenuItem};
 pub use crate::components::overlays::select::{
@@ -57,6 +59,12 @@ impl AnchorBounds {
     /// The bounds from the last prepaint.
     pub fn get(&self) -> Option<Bounds<Pixels>> {
         self.0.get()
+    }
+
+    /// Overrides the bounds, for an anchor that isn't an element (a popup gliding between
+    /// triggers anchors to a rectangle it moves itself).
+    pub fn set(&self, bounds: Option<Bounds<Pixels>>) {
+        self.0.set(bounds);
     }
 
     /// The bounds as a [`Rect`].
