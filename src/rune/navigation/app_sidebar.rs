@@ -366,9 +366,6 @@ impl<'a> AppSidebar<'a> {
 
         // Navigation.
         let sub_open = tween(SUB_PANEL);
-        let fold = Transition::opacity()
-            .hold_layout()
-            .springs(SpringPair::new(slide, slide));
         let nav_row = |gi: usize, g: &'static NavGroup| -> El {
             let active = state.active;
             let flyout = collapsed && !g.items.is_empty();
@@ -420,8 +417,8 @@ impl<'a> AppSidebar<'a> {
                     }
                 });
             }
-            let panel = (!collapsed && !g.items.is_empty()).then(|| {
-                let open = g.is_open(active);
+            let panel = (!g.items.is_empty()).then(|| {
+                let open = g.is_open(active) && !collapsed;
                 let n = g.items.len() as f32;
                 let full = n * row_m::SUB_ROW_HEIGHT
                     + (n - 1.0) * row_m::MENU_GAP
@@ -464,11 +461,14 @@ impl<'a> AppSidebar<'a> {
                 col()
                     .key(k(&format!("panel-{gi}")))
                     .h(if open { full } else { 0.0 })
-                    .motion(Spring::new(seconds(SUB_PANEL), 0.0))
+                    .motion(if collapsed {
+                        slide
+                    } else {
+                        Spring::new(seconds(SUB_PANEL), 0.0)
+                    })
                     .opacity(if open { 1.0 } else { 0.0 })
-                    .opacity_motion(sub_open)
+                    .opacity_motion(if collapsed { tween(COLLAPSE) } else { sub_open })
                     .clip_rounded(0.0)
-                    .transition(fold)
                     .child(
                         col()
                             .gap(row_m::MENU_GAP)
@@ -532,10 +532,11 @@ impl<'a> AppSidebar<'a> {
             .cursor(::rune::Cursor::Pointer)
             .child(glyph(demo::ASK_ICON, 16.0, sb.foreground));
         if !collapsed {
-            ask_button =
-                ask_button
-                    .px(10.0)
-                    .child(label(demo::ASK_LABEL, 14.0, 500.0, 20.0, sb.foreground));
+            ask_button = ask_button.px(10.0).child(
+                label(demo::ASK_LABEL, 14.0, 500.0, 20.0, sb.foreground)
+                    .key(k("ask/label"))
+                    .transition(Transition::none()),
+            );
         }
         let content = col()
             .key(k("content"))
