@@ -27,9 +27,11 @@ use crate::icons::Icon;
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod terminal;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;
+pub use terminal::*;
 
 static LIGHT: Theme = Theme::light();
 
