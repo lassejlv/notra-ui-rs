@@ -352,7 +352,17 @@ impl RenderOnce for Button {
             .justify_center()
             .h(height)
             .map(|d| match metrics.padding_x {
-                Some(padding) => d.px(px(padding)),
+                Some(padding) => {
+                    let side = |has_icon: bool| {
+                        px(if has_icon {
+                            self.size.icon_side_padding().unwrap_or(padding)
+                        } else {
+                            padding
+                        })
+                    };
+                    d.pl(side(self.icon.is_some()))
+                        .pr(side(self.icon_end.is_some()))
+                }
                 None => d.w(height),
             })
             .rounded(px(radius))

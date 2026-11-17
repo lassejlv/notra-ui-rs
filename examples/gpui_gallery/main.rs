@@ -5,6 +5,7 @@
 //! ```
 
 mod button;
+mod primitives;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -22,7 +23,14 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![button::page(window, cx)]
+    vec![
+        button::page(window, cx),
+        primitives::marketing_button_page(cx),
+        primitives::typography_page(cx),
+        primitives::shimmer_page(cx),
+        primitives::badges_page(cx),
+        primitives::primitives_page(cx),
+    ]
 }
 
 struct Gallery {

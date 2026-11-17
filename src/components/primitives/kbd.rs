@@ -39,7 +39,9 @@ impl KbdSkin {
     /// Inside a tooltip: `bg-background/20 text-background` (`/10` in dark).
     pub fn in_tooltip(theme: &Theme) -> Self {
         Self {
-            fill: theme.background.fade(if theme.is_dark() { 0.1 } else { 0.2 }),
+            fill: theme
+                .background
+                .fade(if theme.is_dark() { 0.1 } else { 0.2 }),
             text: theme.background,
         }
     }

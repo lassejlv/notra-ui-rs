@@ -40,9 +40,41 @@ pub fn focus_ring(theme: &Theme) -> (f32, Color) {
     (3.0, theme.ring.fade(0.5))
 }
 
-/// A CSS `oklab(l a b)` colour.
+/// A CSS `oklab(l a b)` colour, brought into sRGB as browsers paint it: chroma is
+/// reduced at constant lightness and hue until the colour fits (CSS Color 4 gamut
+/// mapping), rather than clipping each channel.
 pub fn oklab(l: f32, a: f32, b: f32) -> Color {
-    Color::oklch(l, a.hypot(b), b.atan2(a).to_degrees())
+    let hue = b.atan2(a);
+    let (sin, cos) = hue.sin_cos();
+    let fits = |c: f32| in_srgb_gamut(l, c * cos, c * sin);
+    let mut chroma = a.hypot(b);
+    if !fits(chroma) {
+        let (mut lo, mut hi) = (0.0_f32, chroma);
+        for _ in 0..24 {
+            let mid = (lo + hi) / 2.0;
+            if fits(mid) {
+                lo = mid;
+            } else {
+                hi = mid;
+            }
+        }
+        chroma = lo;
+    }
+    Color::oklch(l, chroma, hue.to_degrees())
+}
+
+fn in_srgb_gamut(l: f32, a: f32, b: f32) -> bool {
+    let l_ = l + 0.396_337_78 * a + 0.215_803_76 * b;
+    let m_ = l - 0.105_561_346 * a - 0.063_854_17 * b;
+    let s_ = l - 0.089_484_18 * a - 1.291_485_5 * b;
+    let (l3, m3, s3) = (l_ * l_ * l_, m_ * m_ * m_, s_ * s_ * s_);
+    [
+        4.076_741_7 * l3 - 3.307_711_6 * m3 + 0.230_969_94 * s3,
+        -1.268_438 * l3 + 2.609_757_4 * m3 - 0.341_319_38 * s3,
+        -0.004_196_086_3 * l3 - 0.703_418_6 * m3 + 1.707_614_7 * s3,
+    ]
+    .iter()
+    .all(|c| (-1e-4..=1.0001).contains(c))
 }
 
 #[cfg(test)]

@@ -232,7 +232,11 @@ mod tests {
 
     #[test]
     fn light_success_matches_the_live_tint() {
-        let skin = StatusSkin::new(&Theme::light(), StatusVariant::Success, BadgeAppearance::Badge);
+        let skin = StatusSkin::new(
+            &Theme::light(),
+            StatusVariant::Success,
+            BadgeAppearance::Badge,
+        );
         assert!((skin.fill.a - 0.1).abs() < 1e-6);
         assert!(skin.text.g > skin.text.r && skin.text.g > skin.text.b);
     }
@@ -247,7 +251,8 @@ mod tests {
 
     #[test]
     fn sizes_grow() {
-        let [sm, df, md] = [BadgeSize::Sm, BadgeSize::Default, BadgeSize::Md].map(BadgeSize::metrics);
+        let [sm, df, md] =
+            [BadgeSize::Sm, BadgeSize::Default, BadgeSize::Md].map(BadgeSize::metrics);
         assert!(sm.height < df.height && df.height < md.height);
     }
 }

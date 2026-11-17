@@ -109,7 +109,10 @@ mod tests {
     #[test]
     fn checked_fills_with_primary() {
         let theme = Theme::light();
-        assert_eq!(CheckboxSkin::new(&theme, CheckState::Checked).fill, theme.primary);
+        assert_eq!(
+            CheckboxSkin::new(&theme, CheckState::Checked).fill,
+            theme.primary
+        );
         assert_eq!(
             CheckboxSkin::new(&theme, CheckState::Unchecked).fill,
             Color::TRANSPARENT

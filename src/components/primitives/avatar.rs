@@ -79,6 +79,18 @@ impl AvatarSkin {
     }
 }
 
+impl AvatarSkin {
+    /// The ring over a photo, where the blend has no single colour to resolve against:
+    /// a faint dark (light theme) or light (dark theme) hairline.
+    pub fn image_ring(dark: bool) -> Color {
+        if dark {
+            Color::WHITE.alpha(0.1)
+        } else {
+            Color::BLACK.alpha(0.1)
+        }
+    }
+}
+
 /// The ring's width.
 pub const RING_WIDTH: f32 = 1.0;
 

@@ -96,7 +96,11 @@ impl BadgeSkin {
                     Color::TRANSPARENT,
                     theme.foreground,
                     Some((
-                        if dark { theme.muted.fade(0.5) } else { theme.muted },
+                        if dark {
+                            theme.muted.fade(0.5)
+                        } else {
+                            theme.muted
+                        },
                         theme.muted_foreground,
                     )),
                 )
