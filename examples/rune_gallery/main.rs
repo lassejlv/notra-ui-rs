@@ -11,6 +11,7 @@ mod button;
 mod overlays_demo;
 mod overlays_dialog;
 mod overlays_menu;
+mod overlays_tooltip;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
@@ -25,6 +26,14 @@ pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
     ("sonner", "Sonner", overlays_dialog::sonner_view),
     ("dialog", "Dialog", overlays_dialog::dialog_view),
     ("sheet", "Sheet", overlays_dialog::sheet_view),
+    ("tooltip", "Tooltip", overlays_tooltip::tooltip),
+    (
+        "duotone-tooltip",
+        "Duotone Tooltip",
+        overlays_tooltip::duotone,
+    ),
+    ("popover", "Popover", overlays_tooltip::popover),
+    ("hover-card", "Hover Card", overlays_tooltip::hover_card),
 ];
 
 #[derive(Default)]
@@ -34,6 +43,7 @@ pub struct State {
     pub button: button::Demo,
     pub overlays_menu: overlays_menu::Demo,
     pub overlays_dialog: overlays_dialog::Demo,
+    pub overlays_tooltip: overlays_tooltip::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -256,6 +266,58 @@ fn spec() -> AppSpec<State> {
             ("select-compact-open", |s| {
                 page_scene("select", false)(s);
                 s.overlays_menu.compact_select.open = true;
+            }),
+            ("tooltip", |s| page_scene("tooltip", false)(s)),
+            ("tooltip-dark", |s| page_scene("tooltip", true)(s)),
+            ("tooltip-open", |s| {
+                page_scene("tooltip", false)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::side_open();
+            }),
+            ("tooltip-open-dark", |s| {
+                page_scene("tooltip", true)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::side_open();
+            }),
+            ("tooltip-toolbar-open", |s| {
+                page_scene("tooltip", false)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::toolbar_open();
+            }),
+            ("tooltip-toolbar-open-dark", |s| {
+                page_scene("tooltip", true)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::toolbar_open();
+            }),
+            ("duotone-tooltip", |s| {
+                page_scene("duotone-tooltip", false)(s)
+            }),
+            ("duotone-tooltip-dark", |s| {
+                page_scene("duotone-tooltip", true)(s)
+            }),
+            ("duotone-tooltip-open", |s| {
+                page_scene("duotone-tooltip", false)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::duotone_open();
+            }),
+            ("duotone-tooltip-open-dark", |s| {
+                page_scene("duotone-tooltip", true)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::duotone_open();
+            }),
+            ("popover", |s| page_scene("popover", false)(s)),
+            ("popover-dark", |s| page_scene("popover", true)(s)),
+            ("popover-open", |s| {
+                page_scene("popover", false)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::popover_open();
+            }),
+            ("popover-open-dark", |s| {
+                page_scene("popover", true)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::popover_open();
+            }),
+            ("hover-card", |s| page_scene("hover-card", false)(s)),
+            ("hover-card-dark", |s| page_scene("hover-card", true)(s)),
+            ("hover-card-open", |s| {
+                page_scene("hover-card", false)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::hover_card_open();
+            }),
+            ("hover-card-open-dark", |s| {
+                page_scene("hover-card", true)(s);
+                s.overlays_tooltip = overlays_tooltip::Demo::hover_card_open();
             }),
         ],
         poll: Some(overlays_dialog::poll),

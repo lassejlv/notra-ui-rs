@@ -38,6 +38,8 @@ pub use dialog::{Dialog, Sheet};
 pub use menu::{DropdownMenu, MenuState, depth_surface};
 pub use select::{Select, SelectState};
 pub use toast::{ToastState, Toaster};
+pub mod popover;
+pub mod tooltip;
 
 /// Rune's side for a placement side.
 pub fn side(side: Side) -> ::rune::Side {
