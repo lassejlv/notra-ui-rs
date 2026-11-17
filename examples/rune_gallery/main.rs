@@ -8,19 +8,26 @@
 //! ```
 
 mod button;
+mod navigation;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
+    ("button", "Button", button::view),
+    ("app-sidebar", "App Sidebar", navigation::sidebar_view),
+    ("icon-tabs", "Icon Tabs", navigation::icon_tabs_view),
+    ("step-slider", "Step Slider", navigation::step_slider_view),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub navigation: navigation::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -177,6 +184,20 @@ fn spec() -> AppSpec<State> {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
             }),
+            ("app-sidebar", |s| page_scene("app-sidebar", false)(s)),
+            ("app-sidebar-dark", |s| page_scene("app-sidebar", true)(s)),
+            ("app-sidebar-menu", |s| {
+                page_scene("app-sidebar", false)(s);
+                s.navigation = navigation::Demo::user_menu();
+            }),
+            ("icon-tabs", |s| page_scene("icon-tabs", false)(s)),
+            ("icon-tabs-dark", |s| page_scene("icon-tabs", true)(s)),
+            ("icon-tabs-second", |s| {
+                page_scene("icon-tabs", false)(s);
+                s.navigation = navigation::Demo::second_tab();
+            }),
+            ("step-slider", |s| page_scene("step-slider", false)(s)),
+            ("step-slider-dark", |s| page_scene("step-slider", true)(s)),
         ],
         fonts: FONTS,
         families: FAMILIES,

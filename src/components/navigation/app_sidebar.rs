@@ -136,6 +136,8 @@ pub struct AppSidebarState {
     pub highlight: Option<usize>,
     /// Content overflows below the visible rows.
     pub has_more: bool,
+    /// The rail row under the pointer, whose tooltip shows.
+    pub hovered: Option<&'static str>,
 }
 
 impl AppSidebarState {
@@ -147,6 +149,7 @@ impl AppSidebarState {
             menu: None,
             highlight: None,
             has_more: false,
+            hovered: None,
         }
     }
 
