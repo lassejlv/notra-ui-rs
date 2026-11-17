@@ -9,15 +9,22 @@
 
 mod button;
 mod chat_minimap;
+mod composer;
+mod input;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
+/// Renders one gallery page.
+pub type PageView = fn(&State, &Theme) -> El;
+
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
+pub const PAGES: &[(&str, &str, PageView)] = &[
     ("button", "Button", button::view),
     ("chat-minimap", "Chat Minimap", chat_minimap::view),
+    ("composer", "Composer", composer::view),
+    ("input", "Input", input::view),
 ];
 
 #[derive(Default)]
@@ -26,6 +33,8 @@ pub struct State {
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
     pub chat_minimap: chat_minimap::Demo,
+    pub composer: composer::Demo,
+    pub input: input::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -199,6 +208,34 @@ fn spec() -> AppSpec<State> {
             ("chat-minimap-hover-dark", |s| {
                 page_scene("chat-minimap", true)(s);
                 s.chat_minimap = chat_minimap::Demo::hovering(0, 2);
+            }),
+            ("composer", |s| page_scene("composer", false)(s)),
+            ("composer-dark", |s| page_scene("composer", true)(s)),
+            ("composer-typed", |s| {
+                page_scene("composer", false)(s);
+                s.composer = composer::Demo::typed();
+            }),
+            ("composer-states", |s| {
+                page_scene("composer", false)(s);
+                s.composer = composer::Demo::only(composer::STATE_EXAMPLES);
+            }),
+            ("composer-states-dark", |s| {
+                page_scene("composer", true)(s);
+                s.composer = composer::Demo::only(composer::STATE_EXAMPLES);
+            }),
+            ("composer-trays", |s| {
+                page_scene("composer", false)(s);
+                s.composer = composer::Demo::only(composer::TRAY_EXAMPLES);
+            }),
+            ("composer-trays-dark", |s| {
+                page_scene("composer", true)(s);
+                s.composer = composer::Demo::only(composer::TRAY_EXAMPLES);
+            }),
+            ("input", |s| page_scene("input", false)(s)),
+            ("input-dark", |s| page_scene("input", true)(s)),
+            ("input-focused", |s| {
+                page_scene("input", false)(s);
+                s.input = input::Demo::focused();
             }),
         ],
         fonts: FONTS,
