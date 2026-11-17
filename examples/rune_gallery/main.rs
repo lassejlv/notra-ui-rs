@@ -9,6 +9,7 @@
 
 mod button;
 mod overlays_demo;
+mod overlays_dialog;
 mod overlays_menu;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
@@ -21,6 +22,9 @@ pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
     ("button", "Button", button::view),
     ("dropdown-menu", "Dropdown Menu", overlays_menu::menu_view),
     ("select", "Select", overlays_menu::select_view),
+    ("sonner", "Sonner", overlays_dialog::sonner_view),
+    ("dialog", "Dialog", overlays_dialog::dialog_view),
+    ("sheet", "Sheet", overlays_dialog::sheet_view),
 ];
 
 #[derive(Default)]
@@ -29,6 +33,7 @@ pub struct State {
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
     pub overlays_menu: overlays_menu::Demo,
+    pub overlays_dialog: overlays_dialog::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -134,6 +139,7 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
                     .min_h(0.0),
             ),
         )
+        .children(overlays_dialog::window_layer(s, t))
 }
 
 /// A titled preview area, like the site's Preview tab.
@@ -212,11 +218,47 @@ fn spec() -> AppSpec<State> {
                 page_scene("select", true)(s);
                 s.overlays_menu.frequency_select.open = true;
             }),
+            ("sonner", |s| page_scene("sonner", false)(s)),
+            ("sonner-dark", |s| page_scene("sonner", true)(s)),
+            ("sonner-stack", |s| {
+                page_scene("sonner", false)(s);
+                overlays_dialog::stack_scene(s);
+            }),
+            ("sonner-stack-dark", |s| {
+                page_scene("sonner", true)(s);
+                overlays_dialog::stack_scene(s);
+            }),
+            ("sonner-expanded", |s| {
+                page_scene("sonner", false)(s);
+                overlays_dialog::stack_scene(s);
+                s.overlays_dialog.toasts.expand(true);
+            }),
+            ("dialog", |s| page_scene("dialog", false)(s)),
+            ("dialog-dark", |s| page_scene("dialog", true)(s)),
+            ("dialog-open", |s| {
+                page_scene("dialog", false)(s);
+                s.overlays_dialog.dialog = true;
+            }),
+            ("dialog-open-dark", |s| {
+                page_scene("dialog", true)(s);
+                s.overlays_dialog.dialog = true;
+            }),
+            ("sheet", |s| page_scene("sheet", false)(s)),
+            ("sheet-dark", |s| page_scene("sheet", true)(s)),
+            ("sheet-open", |s| {
+                page_scene("sheet", false)(s);
+                s.overlays_dialog.sheet = true;
+            }),
+            ("sheet-open-dark", |s| {
+                page_scene("sheet", true)(s);
+                s.overlays_dialog.sheet = true;
+            }),
             ("select-compact-open", |s| {
                 page_scene("select", false)(s);
                 s.overlays_menu.compact_select.open = true;
             }),
         ],
+        poll: Some(overlays_dialog::poll),
         fonts: FONTS,
         families: FAMILIES,
         ..AppSpec::new("Notra UI", (1200.0, 820.0), State::default, view)
