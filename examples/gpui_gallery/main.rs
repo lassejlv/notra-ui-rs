@@ -6,6 +6,7 @@
 
 mod button;
 mod overlays_demo;
+mod overlays_dialog;
 mod overlays_menu;
 
 use gpui::{
@@ -28,6 +29,9 @@ fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
         button::page(window, cx),
         overlays_menu::dropdown_menu_page(window, cx),
         overlays_menu::select_page(window, cx),
+        overlays_dialog::sonner_page(window, cx),
+        overlays_dialog::dialog_page(window, cx),
+        overlays_dialog::sheet_page(window, cx),
     ]
 }
 

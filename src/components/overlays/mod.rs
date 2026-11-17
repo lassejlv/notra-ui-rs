@@ -11,8 +11,10 @@ use std::time::{Duration, Instant};
 
 use crate::motion::{Tween, ease, lerp};
 
+pub mod dialog;
 pub mod menu;
 pub mod select;
+pub mod toast;
 
 /// The side of its anchor a popup sits on.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Default)]

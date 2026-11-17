@@ -30,18 +30,23 @@ use ::gpui::{
 use crate::components::overlays::menu::HIGHLIGHT;
 use crate::components::overlays::place;
 
+mod dialog;
 mod menu;
 mod select;
+mod toast;
 
 pub use crate::components::overlays::menu::{ItemKind, MenuEntry, MenuItem};
 pub use crate::components::overlays::select::{
     SelectEntry, SelectOption, SelectSize, SelectVariant,
 };
+pub use crate::components::overlays::toast::{Toast, ToastKind};
 pub use crate::components::overlays::{
     Align, Avoid, Collision, Placed, Placement, PopupFrame, PopupMotion, Presence, Rect, Side,
 };
+pub use dialog::{Dialog, Sheet};
 pub use menu::DropdownMenu;
 pub use select::Select;
+pub use toast::{Toaster, dismiss_toast, toast};
 
 /// The window bounds of a trigger, captured while it prepaints so a popup can anchor to it.
 /// Clones share one cell.
