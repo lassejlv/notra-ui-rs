@@ -5,6 +5,8 @@
 //! ```
 
 mod button;
+mod composer;
+mod input;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -22,7 +24,11 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![button::page(window, cx)]
+    vec![
+        button::page(window, cx),
+        composer::page(window, cx),
+        input::page(window, cx),
+    ]
 }
 
 struct Gallery {

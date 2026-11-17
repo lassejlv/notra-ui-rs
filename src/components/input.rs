@@ -267,6 +267,30 @@ impl Editing {
         self.reversed = reversed;
     }
 
+    /// Selects the word under `offset` (a double click), or the character there between words.
+    pub fn select_word_at(&mut self, offset: usize) {
+        let offset = self.clamp(offset);
+        let is_word = |c: char| c.is_alphanumeric() || c == '_';
+        let start = self.text[..offset]
+            .char_indices()
+            .rev()
+            .take_while(|&(_, c)| is_word(c))
+            .last()
+            .map_or(offset, |(i, _)| i);
+        let end = offset
+            + self.text[offset..]
+                .char_indices()
+                .find(|&(_, c)| !is_word(c))
+                .map_or(self.text.len() - offset, |(i, _)| i);
+        let end = if start == end {
+            self.next_boundary(end)
+        } else {
+            end
+        };
+        self.selection = start..end;
+        self.reversed = false;
+    }
+
     /// The offset a motion lands on from the caret.
     pub fn target(&self, motion: Motion) -> usize {
         let at = self.cursor();
@@ -484,6 +508,16 @@ mod tests {
         assert_eq!(e.target(Motion::WordLeft), 9);
         e.move_to(3);
         assert_eq!(e.target(Motion::WordRight), 8);
+    }
+
+    #[test]
+    fn double_click_selects_the_word() {
+        let mut e = Editing::new("say hello_there now");
+        e.select_word_at(6);
+        assert_eq!(e.selected_text(), "hello_there");
+        let mut gap = Editing::new("a  b");
+        gap.select_word_at(2);
+        assert_eq!(gap.selected_text(), " ");
     }
 
     #[test]

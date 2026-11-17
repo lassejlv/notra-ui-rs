@@ -27,9 +27,18 @@ use crate::icons::Icon;
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod composer;
+mod input;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;
+pub use composer::{
+    ChipLead, ComposerChip, ComposerFrame, ComposerInput, ComposerNotice, ComposerNudge,
+    ComposerSend, ComposerToolbar, ComposerToolbarButton,
+};
+pub use input::{
+    Input, InputGroup, InputGroupAddon, InputGroupButton, TextField, TextFieldEvent, Textarea,
+};
 
 static LIGHT: Theme = Theme::light();
 
@@ -43,6 +52,7 @@ pub fn init(cx: &mut App) {
     cx.text_system()
         .add_fonts(fonts::ALL.iter().map(|face| Cow::Borrowed(*face)).collect())
         .expect("the bundled fonts are valid");
+    input::bind_keys(cx);
     if !cx.has_global::<NotraTheme>() {
         cx.set_global(NotraTheme(Theme::light()));
     }
