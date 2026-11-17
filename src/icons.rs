@@ -8,20 +8,25 @@ pub enum Icon {
     ArrowDown,
     ArrowRight,
     ArrowUp,
+    AtSign,
+    Brain,
     Check,
     ChevronDown,
     ChevronLeft,
     ChevronRight,
     ChevronsUpDown,
+    CircleAlert,
     Copy,
     Dices,
     ExternalLink,
+    FileText,
     Globe,
     HugeArrowLeft01,
     HugeArrowRight01,
     HugeInformationCircle,
     HugeSearch,
     HugeUnfoldMore,
+    LoaderCircle,
     LockKeyhole,
     Mail,
     Map,
@@ -32,6 +37,7 @@ pub enum Icon {
     Plus,
     RotateCcw,
     Search,
+    SquareSolid,
     Square,
     ThumbsDown,
     ThumbsUp,
@@ -49,20 +55,25 @@ impl Icon {
         Icon::ArrowDown,
         Icon::ArrowRight,
         Icon::ArrowUp,
+        Icon::AtSign,
+        Icon::Brain,
         Icon::Check,
         Icon::ChevronDown,
         Icon::ChevronLeft,
         Icon::ChevronRight,
         Icon::ChevronsUpDown,
+        Icon::CircleAlert,
         Icon::Copy,
         Icon::Dices,
         Icon::ExternalLink,
+        Icon::FileText,
         Icon::Globe,
         Icon::HugeArrowLeft01,
         Icon::HugeArrowRight01,
         Icon::HugeInformationCircle,
         Icon::HugeSearch,
         Icon::HugeUnfoldMore,
+        Icon::LoaderCircle,
         Icon::LockKeyhole,
         Icon::Mail,
         Icon::Map,
@@ -73,6 +84,7 @@ impl Icon {
         Icon::Plus,
         Icon::RotateCcw,
         Icon::Search,
+        Icon::SquareSolid,
         Icon::Square,
         Icon::ThumbsDown,
         Icon::ThumbsUp,
@@ -90,20 +102,25 @@ impl Icon {
             Icon::ArrowDown => "arrow-down",
             Icon::ArrowRight => "arrow-right",
             Icon::ArrowUp => "arrow-up",
+            Icon::AtSign => "at-sign",
+            Icon::Brain => "brain",
             Icon::Check => "check",
             Icon::ChevronDown => "chevron-down",
             Icon::ChevronLeft => "chevron-left",
             Icon::ChevronRight => "chevron-right",
             Icon::ChevronsUpDown => "chevrons-up-down",
+            Icon::CircleAlert => "circle-alert",
             Icon::Copy => "copy",
             Icon::Dices => "dices",
             Icon::ExternalLink => "external-link",
+            Icon::FileText => "file-text",
             Icon::Globe => "globe",
             Icon::HugeArrowLeft01 => "huge-arrow-left-01",
             Icon::HugeArrowRight01 => "huge-arrow-right-01",
             Icon::HugeInformationCircle => "huge-information-circle",
             Icon::HugeSearch => "huge-search",
             Icon::HugeUnfoldMore => "huge-unfold-more",
+            Icon::LoaderCircle => "loader-circle",
             Icon::LockKeyhole => "lock-keyhole",
             Icon::Mail => "mail",
             Icon::Map => "map",
@@ -114,6 +131,7 @@ impl Icon {
             Icon::Plus => "plus",
             Icon::RotateCcw => "rotate-ccw",
             Icon::Search => "search",
+            Icon::SquareSolid => "square-solid",
             Icon::Square => "square",
             Icon::ThumbsDown => "thumbs-down",
             Icon::ThumbsUp => "thumbs-up",
@@ -132,14 +150,18 @@ impl Icon {
             Icon::ArrowDown => include_str!("../assets/icons/arrow-down.svg"),
             Icon::ArrowRight => include_str!("../assets/icons/arrow-right.svg"),
             Icon::ArrowUp => include_str!("../assets/icons/arrow-up.svg"),
+            Icon::AtSign => include_str!("../assets/icons/at-sign.svg"),
+            Icon::Brain => include_str!("../assets/icons/brain.svg"),
             Icon::Check => include_str!("../assets/icons/check.svg"),
             Icon::ChevronDown => include_str!("../assets/icons/chevron-down.svg"),
             Icon::ChevronLeft => include_str!("../assets/icons/chevron-left.svg"),
             Icon::ChevronRight => include_str!("../assets/icons/chevron-right.svg"),
             Icon::ChevronsUpDown => include_str!("../assets/icons/chevrons-up-down.svg"),
+            Icon::CircleAlert => include_str!("../assets/icons/circle-alert.svg"),
             Icon::Copy => include_str!("../assets/icons/copy.svg"),
             Icon::Dices => include_str!("../assets/icons/dices.svg"),
             Icon::ExternalLink => include_str!("../assets/icons/external-link.svg"),
+            Icon::FileText => include_str!("../assets/icons/file-text.svg"),
             Icon::Globe => include_str!("../assets/icons/globe.svg"),
             Icon::HugeArrowLeft01 => include_str!("../assets/icons/huge-arrow-left-01.svg"),
             Icon::HugeArrowRight01 => include_str!("../assets/icons/huge-arrow-right-01.svg"),
@@ -148,6 +170,7 @@ impl Icon {
             }
             Icon::HugeSearch => include_str!("../assets/icons/huge-search.svg"),
             Icon::HugeUnfoldMore => include_str!("../assets/icons/huge-unfold-more.svg"),
+            Icon::LoaderCircle => include_str!("../assets/icons/loader-circle.svg"),
             Icon::LockKeyhole => include_str!("../assets/icons/lock-keyhole.svg"),
             Icon::Mail => include_str!("../assets/icons/mail.svg"),
             Icon::Map => include_str!("../assets/icons/map.svg"),
@@ -158,6 +181,7 @@ impl Icon {
             Icon::Plus => include_str!("../assets/icons/plus.svg"),
             Icon::RotateCcw => include_str!("../assets/icons/rotate-ccw.svg"),
             Icon::Search => include_str!("../assets/icons/search.svg"),
+            Icon::SquareSolid => include_str!("../assets/icons/square-solid.svg"),
             Icon::Square => include_str!("../assets/icons/square.svg"),
             Icon::ThumbsDown => include_str!("../assets/icons/thumbs-down.svg"),
             Icon::ThumbsUp => include_str!("../assets/icons/thumbs-up.svg"),
@@ -183,6 +207,12 @@ impl Icon {
             Icon::ArrowUp => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"#
             }
+            Icon::AtSign => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" /></g>"#
+            }
+            Icon::Brain => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></g>"#
+            }
             Icon::Check => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"#
             }
@@ -198,6 +228,9 @@ impl Icon {
             Icon::ChevronsUpDown => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"#
             }
+            Icon::CircleAlert => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></g>"#
+            }
             Icon::Copy => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"#
             }
@@ -206,6 +239,9 @@ impl Icon {
             }
             Icon::ExternalLink => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"#
+            }
+            Icon::FileText => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></g>"#
             }
             Icon::Globe => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></g>"#
@@ -224,6 +260,9 @@ impl Icon {
             }
             Icon::HugeUnfoldMore => {
                 r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::LoaderCircle => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></g>"#
             }
             Icon::LockKeyhole => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"#
@@ -254,6 +293,9 @@ impl Icon {
             }
             Icon::Search => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#
+            }
+            Icon::SquareSolid => {
+                r#"<g fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#
             }
             Icon::Square => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#
@@ -291,20 +333,25 @@ impl Icon {
             Icon::ArrowDown => 24.0,
             Icon::ArrowRight => 24.0,
             Icon::ArrowUp => 24.0,
+            Icon::AtSign => 24.0,
+            Icon::Brain => 24.0,
             Icon::Check => 24.0,
             Icon::ChevronDown => 24.0,
             Icon::ChevronLeft => 24.0,
             Icon::ChevronRight => 24.0,
             Icon::ChevronsUpDown => 24.0,
+            Icon::CircleAlert => 24.0,
             Icon::Copy => 24.0,
             Icon::Dices => 24.0,
             Icon::ExternalLink => 24.0,
+            Icon::FileText => 24.0,
             Icon::Globe => 24.0,
             Icon::HugeArrowLeft01 => 24.0,
             Icon::HugeArrowRight01 => 24.0,
             Icon::HugeInformationCircle => 24.0,
             Icon::HugeSearch => 24.0,
             Icon::HugeUnfoldMore => 24.0,
+            Icon::LoaderCircle => 24.0,
             Icon::LockKeyhole => 24.0,
             Icon::Mail => 24.0,
             Icon::Map => 24.0,
@@ -315,6 +362,7 @@ impl Icon {
             Icon::Plus => 24.0,
             Icon::RotateCcw => 24.0,
             Icon::Search => 24.0,
+            Icon::SquareSolid => 24.0,
             Icon::Square => 24.0,
             Icon::ThumbsDown => 24.0,
             Icon::ThumbsUp => 24.0,
@@ -333,20 +381,25 @@ impl Icon {
             Icon::ArrowDown => "notra/icons/arrow-down.svg",
             Icon::ArrowRight => "notra/icons/arrow-right.svg",
             Icon::ArrowUp => "notra/icons/arrow-up.svg",
+            Icon::AtSign => "notra/icons/at-sign.svg",
+            Icon::Brain => "notra/icons/brain.svg",
             Icon::Check => "notra/icons/check.svg",
             Icon::ChevronDown => "notra/icons/chevron-down.svg",
             Icon::ChevronLeft => "notra/icons/chevron-left.svg",
             Icon::ChevronRight => "notra/icons/chevron-right.svg",
             Icon::ChevronsUpDown => "notra/icons/chevrons-up-down.svg",
+            Icon::CircleAlert => "notra/icons/circle-alert.svg",
             Icon::Copy => "notra/icons/copy.svg",
             Icon::Dices => "notra/icons/dices.svg",
             Icon::ExternalLink => "notra/icons/external-link.svg",
+            Icon::FileText => "notra/icons/file-text.svg",
             Icon::Globe => "notra/icons/globe.svg",
             Icon::HugeArrowLeft01 => "notra/icons/huge-arrow-left-01.svg",
             Icon::HugeArrowRight01 => "notra/icons/huge-arrow-right-01.svg",
             Icon::HugeInformationCircle => "notra/icons/huge-information-circle.svg",
             Icon::HugeSearch => "notra/icons/huge-search.svg",
             Icon::HugeUnfoldMore => "notra/icons/huge-unfold-more.svg",
+            Icon::LoaderCircle => "notra/icons/loader-circle.svg",
             Icon::LockKeyhole => "notra/icons/lock-keyhole.svg",
             Icon::Mail => "notra/icons/mail.svg",
             Icon::Map => "notra/icons/map.svg",
@@ -357,6 +410,7 @@ impl Icon {
             Icon::Plus => "notra/icons/plus.svg",
             Icon::RotateCcw => "notra/icons/rotate-ccw.svg",
             Icon::Search => "notra/icons/search.svg",
+            Icon::SquareSolid => "notra/icons/square-solid.svg",
             Icon::Square => "notra/icons/square.svg",
             Icon::ThumbsDown => "notra/icons/thumbs-down.svg",
             Icon::ThumbsUp => "notra/icons/thumbs-up.svg",
@@ -399,6 +453,16 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"#,
     },
     ::rune::Icon {
+        name: "at-sign",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" /></g>"#,
+    },
+    ::rune::Icon {
+        name: "brain",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></g>"#,
+    },
+    ::rune::Icon {
         name: "check",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"#,
@@ -424,6 +488,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"#,
     },
     ::rune::Icon {
+        name: "circle-alert",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></g>"#,
+    },
+    ::rune::Icon {
         name: "copy",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"#,
@@ -437,6 +506,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         name: "external-link",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"#,
+    },
+    ::rune::Icon {
+        name: "file-text",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></g>"#,
     },
     ::rune::Icon {
         name: "globe",
@@ -467,6 +541,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         name: "huge-unfold-more",
         view: 24.0,
         body: r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "loader-circle",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56" /></g>"#,
     },
     ::rune::Icon {
         name: "lock-keyhole",
@@ -517,6 +596,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         name: "search",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#,
+    },
+    ::rune::Icon {
+        name: "square-solid",
+        view: 24.0,
+        body: r#"<g fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#,
     },
     ::rune::Icon {
         name: "square",
