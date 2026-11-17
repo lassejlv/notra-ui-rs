@@ -569,7 +569,7 @@ fn step(entries: &[MenuEntry], from: Option<usize>, dir: isize) -> Option<usize>
 /// The next enabled row after `from` whose label starts with `c`, looping.
 fn type_ahead(entries: &[MenuEntry], from: Option<usize>, c: char) -> Option<usize> {
     let n = entries.len();
-    let start = from.map_or(n - 1, |i| i);
+    let start = from.unwrap_or(n - 1);
     let lower: String = c.to_lowercase().collect();
     (1..=n).map(|k| (start + k) % n).find(|&i| {
         entries[i]

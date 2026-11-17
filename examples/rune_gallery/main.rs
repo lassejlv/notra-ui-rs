@@ -9,6 +9,7 @@
 
 mod button;
 mod overlays_demo;
+mod overlays_menu;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
@@ -16,13 +17,18 @@ use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
 #[allow(clippy::type_complexity)]
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
+    ("button", "Button", button::view),
+    ("dropdown-menu", "Dropdown Menu", overlays_menu::menu_view),
+    ("select", "Select", overlays_menu::select_view),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub overlays_menu: overlays_menu::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -178,6 +184,37 @@ fn spec() -> AppSpec<State> {
             ("button-loading", |s| {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
+            }),
+            ("dropdown-menu", |s| page_scene("dropdown-menu", false)(s)),
+            ("dropdown-menu-dark", |s| {
+                page_scene("dropdown-menu", true)(s)
+            }),
+            ("dropdown-menu-open", |s| {
+                page_scene("dropdown-menu", false)(s);
+                s.overlays_menu.menu.open = true;
+            }),
+            ("dropdown-menu-open-dark", |s| {
+                page_scene("dropdown-menu", true)(s);
+                s.overlays_menu.menu.open = true;
+            }),
+            ("dropdown-menu-submenu", |s| {
+                page_scene("dropdown-menu", false)(s);
+                s.overlays_menu.menu.open = true;
+                s.overlays_menu.menu.submenus = vec![3];
+            }),
+            ("select", |s| page_scene("select", false)(s)),
+            ("select-dark", |s| page_scene("select", true)(s)),
+            ("select-open", |s| {
+                page_scene("select", false)(s);
+                s.overlays_menu.frequency_select.open = true;
+            }),
+            ("select-open-dark", |s| {
+                page_scene("select", true)(s);
+                s.overlays_menu.frequency_select.open = true;
+            }),
+            ("select-compact-open", |s| {
+                page_scene("select", false)(s);
+                s.overlays_menu.compact_select.open = true;
             }),
         ],
         fonts: FONTS,
