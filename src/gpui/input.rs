@@ -1067,7 +1067,20 @@ fn field_box(
         } else {
             skin.background
         })
-        .when(focused, |d| d.shadow(shadows(&[skin.focus_ring])))
+        .when(focused, |d| {
+            let spread = skin.focus_ring.spread;
+            d.child(
+                div()
+                    .absolute()
+                    .top(px(-spread - 1.0))
+                    .left(px(-spread - 1.0))
+                    .right(px(-spread - 1.0))
+                    .bottom(px(-spread - 1.0))
+                    .rounded(px(radius + spread))
+                    .border(px(spread))
+                    .border_color(skin.focus_ring.color),
+            )
+        })
         .when(disabled, |d| {
             d.opacity(DISABLED_OPACITY)
                 .cursor(CursorStyle::OperationNotAllowed)
@@ -1207,6 +1220,7 @@ impl RenderOnce for InputGroup {
 #[derive(IntoElement)]
 pub struct InputGroupAddon {
     align: AddonAlign,
+    icons: Vec<Icon>,
     children: Vec<AnyElement>,
     holds_button: bool,
     focus: Option<FocusHandle>,
@@ -1216,20 +1230,16 @@ impl InputGroupAddon {
     pub fn new(align: AddonAlign) -> Self {
         Self {
             align,
+            icons: Vec::new(),
             children: Vec::new(),
             holds_button: false,
             focus: None,
         }
     }
 
+    /// An icon before the addon's other contents.
     pub fn icon(mut self, icon: Icon) -> Self {
-        self.children.push(
-            svg()
-                .path(icon.path())
-                .size(px(group::ADDON_ICON))
-                .flex_none()
-                .into_any_element(),
-        );
+        self.icons.push(icon);
         self
     }
 
@@ -1297,6 +1307,13 @@ impl RenderOnce for InputGroupAddon {
                     window.focus(&focus, cx);
                 })
             })
+            .children(self.icons.into_iter().map(|icon| {
+                svg()
+                    .path(icon.path())
+                    .size(px(group::ADDON_ICON))
+                    .flex_none()
+                    .text_color(theme.muted_foreground)
+            }))
             .children(self.children)
     }
 }

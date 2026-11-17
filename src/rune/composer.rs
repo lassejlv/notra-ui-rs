@@ -88,8 +88,8 @@ impl ComposerFrame {
             .role("group")
             .motion(nudge_spring());
         let mut card = col().key("card").w_full().min_w(0.0).border_layout();
-        for (i, child) in self.children.into_iter().enumerate() {
-            card = card.child(child.key(format!("part-{i}")));
+        for child in self.children {
+            card = card.child(child);
         }
 
         if self.shape == ComposerShape::Flat {
@@ -217,8 +217,8 @@ impl ComposerNudge {
                 .flex_wrap()
                 .center_y()
                 .gap(nudge::CHIP_GAP);
-            for (i, child) in self.children.into_iter().enumerate() {
-                chips = chips.child(child.key(format!("chip-{i}")));
+            for child in self.children {
+                chips = chips.child(child);
             }
             e = e.child(chips);
         } else if let Some(title) = self.title {
@@ -544,13 +544,13 @@ impl ComposerToolbar {
             .px(toolbar::PADDING_X)
             .pt(toolbar::PADDING_TOP)
             .pb(toolbar::PADDING_BOTTOM);
-        for (i, child) in self.leading.into_iter().enumerate() {
-            e = e.child(child.key(format!("lead-{i}")));
+        for child in self.leading {
+            e = e.child(child);
         }
         e = e.child(::rune::el().key("spacer").grow(1.0));
         let mut end = row().key("end").center_y().gap(toolbar::GAP);
-        for (i, child) in self.trailing.into_iter().enumerate() {
-            end = end.child(child.key(format!("end-{i}")));
+        for child in self.trailing {
+            end = end.child(child);
         }
         e.child(end)
     }
@@ -758,18 +758,24 @@ impl ComposerSend {
                 e = press(e);
             }
         }
-        row().key(self.key).hover_group().child(e).children(
-            self.tooltip
-                .map(|label| tooltip_bubble(theme, &button_key, label)),
-        )
+        row()
+            .key(self.key)
+            .hover_group()
+            .hover_motion(
+                tween(tooltip::ENTER).delay(tooltip::DELAY.as_secs_f32()),
+                tween(tooltip::EXIT),
+            )
+            .child(e)
+            .children(
+                self.tooltip
+                    .map(|label| tooltip_bubble(theme, &button_key, label)),
+            )
     }
 }
 
 /// The dark tooltip above a keyed trigger: it fades in 600 ms into a hover, as Base UI's does.
 fn tooltip_bubble(theme: &Theme, anchor: &str, label: String) -> El {
     let skin = tooltip::TooltipSkin::new(theme);
-    let enter = tween(tooltip::ENTER).delay(tooltip::DELAY.as_secs_f32());
-    let exit = tween(tooltip::EXIT);
     let mut chip = row()
         .key("chip")
         .px(tooltip::PADDING_X)
@@ -807,7 +813,6 @@ fn tooltip_bubble(theme: &Theme, anchor: &str, label: String) -> El {
         .items_center()
         .a11y_hidden()
         .group_opacity(0.0, 1.0)
-        .hover_motion(enter, exit)
         .child(chip)
         .child(arrow)
 }
