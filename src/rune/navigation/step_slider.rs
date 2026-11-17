@@ -294,7 +294,7 @@ impl<'a> StepSlider<'a> {
                         return None;
                     }
                     let current = i == index;
-                    let center = track.stop_center(step_ratio(i, count)) - metrics::LABEL_INSET;
+                    let center = track.stop_center(step_ratio(i, count));
                     let mut t = text(label)
                         .font(
                             sans(

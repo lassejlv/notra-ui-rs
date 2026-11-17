@@ -414,7 +414,7 @@ impl RenderOnce for StepSlider {
                     } else {
                         mix(skin.label, skin.label_active, s.labels[i].value(now))
                     };
-                    let center = track.stop_center(step_ratio(i, count)) - metrics::LABEL_INSET;
+                    let center = track.stop_center(step_ratio(i, count));
                     let (hover_state, select, commit) =
                         (state.clone(), select.clone(), commit.clone());
                     Some(
