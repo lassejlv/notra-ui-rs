@@ -27,9 +27,14 @@ use crate::motion::{CubicBezier, Tween};
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod card;
+pub mod data_parts;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
+pub use crate::components::card::CardVariant;
 pub use button::Button;
+pub use card::{Card, CardEmpty, CardSection, card_grid, card_reveal};
+pub use data_parts::tooltip_look;
 
 /// Every bundled face, for `AppSpec::fonts`.
 pub const FONTS: &[&[u8]] = fonts::ALL;

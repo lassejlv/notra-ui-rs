@@ -8,19 +8,24 @@
 //! ```
 
 mod button;
+mod card;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
+    ("button", "Button", button::view),
+    ("card", "Card", card::view),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub card: card::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -173,6 +178,12 @@ fn spec() -> AppSpec<State> {
         scenes: &[
             ("button", |s| page_scene("button", false)(s)),
             ("button-dark", |s| page_scene("button", true)(s)),
+            ("card", |s| page_scene("card", false)(s)),
+            ("card-dark", |s| page_scene("card", true)(s)),
+            ("card-revealed", |s| {
+                page_scene("card", false)(s);
+                s.card.revealed = true;
+            }),
             ("button-loading", |s| {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
