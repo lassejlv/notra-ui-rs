@@ -241,7 +241,7 @@ impl<'a> DropdownMenu<'a> {
             .items_stretch()
             .min_w(min_width)
             .max_h(metrics::MAX_HEIGHT)
-            .padding(metrics::SURFACE_PADDING)
+            .padding(metrics::SURFACE_PADDING + 1.0)
             .children(rows);
         match width {
             Some(w) => surface.w(w),

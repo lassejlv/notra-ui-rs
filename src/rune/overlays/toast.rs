@@ -226,7 +226,7 @@ impl Toaster {
             .label(toast.title.clone())
             .pin(Some(0.0), None, Some(0.0), Some(0.0))
             .h(slot.height)
-            .padding(metrics::PADDING)
+            .padding(metrics::PADDING + 1.0)
             .radius(metrics::RADIUS)
             .continuous_corners()
             .border(1.0, skin.border.rune())

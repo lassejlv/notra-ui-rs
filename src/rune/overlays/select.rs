@@ -242,6 +242,7 @@ impl<'a> Select<'a> {
             .key(format!("{}-popup", self.key))
             .w(width)
             .max_h(rows::MAX_HEIGHT)
+            .padding(1.0)
             .child(list);
         let trigger = self.trigger_key();
         Some(
