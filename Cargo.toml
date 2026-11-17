@@ -1,0 +1,59 @@
+[package]
+name = "notra-ui"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+description = "Notra UI components for GPUI and Rune"
+license = "MIT"
+repository = "https://github.com/lassejlv/notra-ui-rs"
+readme = "README.md"
+keywords = ["gpui", "rune", "ui", "components", "notra"]
+categories = ["gui"]
+
+[features]
+default = []
+gpui = ["dep:gpui", "dep:gpui_platform"]
+rune = ["dep:rune", "dep:rune-motion"]
+
+[dependencies]
+gpui = { git = "https://github.com/zed-industries/zed", rev = "7733b9922665f103abda7c6a3fde6b9dfdc8eba9", default-features = false, optional = true }
+rune = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113", optional = true }
+rune-motion = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113", optional = true }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "7733b9922665f103abda7c6a3fde6b9dfdc8eba9", features = ["font-kit"], optional = true }
+
+[target.'cfg(any(target_os = "linux", target_os = "freebsd"))'.dependencies]
+gpui = { git = "https://github.com/zed-industries/zed", rev = "7733b9922665f103abda7c6a3fde6b9dfdc8eba9", default-features = false, features = ["wayland", "x11"], optional = true }
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "7733b9922665f103abda7c6a3fde6b9dfdc8eba9", features = ["wayland", "x11"], optional = true }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+gpui_platform = { git = "https://github.com/zed-industries/zed", rev = "7733b9922665f103abda7c6a3fde6b9dfdc8eba9", optional = true }
+
+[dev-dependencies]
+
+[[example]]
+name = "gpui_gallery"
+path = "examples/gpui_gallery/main.rs"
+required-features = ["gpui"]
+
+[[example]]
+name = "rune_gallery"
+path = "examples/rune_gallery/main.rs"
+required-features = ["rune"]
+
+[patch.crates-io]
+winit = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113" }
+parley_engine = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113" }
+wgpu-hal = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113" }
+accesskit_windows = { git = "https://github.com/anomalyco/rune", rev = "65f8eb43f710e078f92cb82039212de50cb03113" }
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+[profile.release]
+codegen-units = 16
+incremental = true
