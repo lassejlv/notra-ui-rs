@@ -8,19 +8,35 @@
 //! ```
 
 mod button;
+mod primitives;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
-/// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+/// A page's view. Add a page: a module with a view and a row in [`PAGES`].
+pub type PageView = fn(&State, &Theme) -> El;
+
+/// Gallery pages, in sidebar order.
+pub const PAGES: &[(&str, &str, PageView)] = &[
+    ("button", "Button", button::view),
+    (
+        "marketing-button",
+        "Marketing Button",
+        primitives::marketing_button,
+    ),
+    ("typography", "Typography", primitives::typography),
+    ("shimmer", "Shimmer", primitives::shimmer),
+    ("badges", "Status & Trend Badges", primitives::badges),
+    ("primitives", "Primitives", primitives::primitives),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub primitives: primitives::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -176,6 +192,28 @@ fn spec() -> AppSpec<State> {
             ("button-loading", |s| {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
+            }),
+            ("marketing-button", |s| {
+                page_scene("marketing-button", false)(s)
+            }),
+            ("marketing-button-dark", |s| {
+                page_scene("marketing-button", true)(s)
+            }),
+            ("marketing-button-loading", |s| {
+                page_scene("marketing-button", false)(s);
+                s.primitives = primitives::Demo::active();
+            }),
+            ("typography", |s| page_scene("typography", false)(s)),
+            ("typography-dark", |s| page_scene("typography", true)(s)),
+            ("shimmer", |s| page_scene("shimmer", false)(s)),
+            ("shimmer-dark", |s| page_scene("shimmer", true)(s)),
+            ("badges", |s| page_scene("badges", false)(s)),
+            ("badges-dark", |s| page_scene("badges", true)(s)),
+            ("primitives", |s| page_scene("primitives", false)(s)),
+            ("primitives-dark", |s| page_scene("primitives", true)(s)),
+            ("primitives-active", |s| {
+                page_scene("primitives", false)(s);
+                s.primitives = primitives::Demo::active();
             }),
         ],
         fonts: FONTS,

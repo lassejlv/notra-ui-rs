@@ -27,9 +27,11 @@ use crate::motion::{CubicBezier, Tween};
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod primitives;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;
+pub use primitives::*;
 
 /// Every bundled face, for `AppSpec::fonts`.
 pub const FONTS: &[&[u8]] = fonts::ALL;

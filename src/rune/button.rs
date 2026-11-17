@@ -1,6 +1,7 @@
 use ::rune::{El, Tx, icon, row, text};
 use ::rune_motion::{Beat, Easing, LoopSpec, Sequence, Transition};
 
+use super::primitives::swap_transition;
 use super::{ToRune, brightness_overlay, sans, tween};
 use crate::components::button::{
     ButtonHover, ButtonSize, ButtonSkin, ButtonVariant, DISABLED_OPACITY, TRANSITION, loading,
@@ -26,13 +27,13 @@ pub struct Button {
 /// The dot bounce, one period: rest, up by its own height at 30 %, back by 60 %.
 const DOT_RISE: Easing = Easing::Piecewise(&[
     [0.0, 0.0],
-    [0.075, 0.156],
+    [0.075, 0.129],
     [0.15, 0.5],
-    [0.225, 0.844],
+    [0.225, 0.871],
     [0.3, 1.0],
-    [0.375, 0.844],
+    [0.375, 0.871],
     [0.45, 0.5],
-    [0.525, 0.156],
+    [0.525, 0.129],
     [0.6, 0.0],
     [1.0, 0.0],
 ]);
@@ -135,32 +136,24 @@ impl Button {
             }
             g
         };
-        let mut label = row().key("label").center_y().gap(m.gap);
-        if let Some(i) = self.icon {
-            label = label.child(glyph(i).key("icon"));
-        }
-        if let Some(t) = self.label.clone() {
-            let mut t = text(t).key("text").font(font).color(ink);
-            if let ButtonHover::Fill { text, .. } = skin.hover {
-                t = t.group_color(text.rune());
+        let label = |key: &'static str| {
+            let mut label = row().key(key).center_y().justify_center().gap(m.gap);
+            if let Some(i) = self.icon {
+                label = label.child(glyph(i).key("icon"));
             }
-            label = label.child(t);
-        }
-        if let Some(i) = self.icon_end {
-            label = label.child(glyph(i).key("icon-end"));
-        }
-        let travel = loading::SWAP_TRAVEL_EM * em;
-        let label = if self.loading {
+            if let Some(t) = self.label.clone() {
+                let mut t = text(t).key("text").font(font).color(ink);
+                if let ButtonHover::Fill { text, .. } = skin.hover {
+                    t = t.group_color(text.rune());
+                }
+                label = label.child(t);
+            }
+            if let Some(i) = self.icon_end {
+                label = label.child(glyph(i).key("icon-end"));
+            }
             label
-                .opacity(0.0)
-                .offset(0.0, -travel)
-                .blur(loading::SWAP_BLUR * 0.5)
-        } else {
-            label.opacity(1.0).offset(0.0, 0.0).blur(0.0)
-        }
-        .opacity_motion(tween(loading::SWAP_OUT))
-        .offset_motion(tween(loading::SWAP_OUT))
-        .blur_motion(tween(loading::SWAP_OUT));
+        };
+        let travel = loading::SWAP_TRAVEL_EM * em;
 
         let mut e = row()
             .h(m.height)
@@ -181,7 +174,17 @@ impl Button {
             .focusable(interactive)
             .focus_ring(3.0, 0.0, theme.ring.fade(0.5).rune());
         e = match m.padding_x {
-            Some(p) => e.px(p),
+            Some(p) => {
+                let side = |has_icon: bool| {
+                    if has_icon {
+                        self.size.icon_side_padding().unwrap_or(p)
+                    } else {
+                        p
+                    }
+                };
+                e.pl(side(self.icon.is_some()))
+                    .pr(side(self.icon_end.is_some()))
+            }
             None => e.w(m.height),
         };
         if skin.radius.is_some() {
@@ -236,7 +239,15 @@ impl Button {
                 .clip_rounded(skin.radius.unwrap_or(m.radius));
         }
 
-        e = e.child(label);
+        e = e.child(label("label-size").opacity(0.0).a11y_hidden());
+        if !self.loading {
+            e = e.child(
+                label("label")
+                    .pin(Some(0.0), Some(0.0), Some(0.0), Some(0.0))
+                    .enter_delay(loading::LABEL_RETURN_DELAY.as_secs_f32())
+                    .transition(swap_transition(travel)),
+            );
+        }
 
         if self.loading {
             let size = loading::DOT_SIZE_EM * em;
@@ -280,13 +291,4 @@ impl Button {
 
 fn el_fill() -> El {
     ::rune::el()
-}
-
-/// In from below, out through the top, blurring at the far ends.
-fn swap_transition(travel: f32) -> Transition {
-    let blur = loading::SWAP_BLUR * 0.5;
-    Transition::asymmetric(
-        Transition::offset(0.0, travel).combined(Transition::blur(blur)),
-        Transition::offset(0.0, -travel).combined(Transition::blur(blur)),
-    )
 }
