@@ -17,21 +17,33 @@ pub enum Icon {
     Dices,
     ExternalLink,
     Globe,
+    HugeArrowDownRight01,
     HugeArrowLeft01,
     HugeArrowRight01,
+    HugeArrowUpRight01,
+    HugeCancel01,
+    HugeClock01,
     HugeInformationCircle,
+    HugeLoading03,
+    HugeMinusSign,
+    HugeRocket01,
     HugeSearch,
+    HugeTick02,
     HugeUnfoldMore,
+    LoaderCircle,
     LockKeyhole,
     Mail,
     Map,
     Maximize,
     Mic,
+    Minus,
     Pencil,
     Play,
     Plus,
     RotateCcw,
     Search,
+    SpinnerArc,
+    SpinnerTrack,
     Square,
     ThumbsDown,
     ThumbsUp,
@@ -58,21 +70,33 @@ impl Icon {
         Icon::Dices,
         Icon::ExternalLink,
         Icon::Globe,
+        Icon::HugeArrowDownRight01,
         Icon::HugeArrowLeft01,
         Icon::HugeArrowRight01,
+        Icon::HugeArrowUpRight01,
+        Icon::HugeCancel01,
+        Icon::HugeClock01,
         Icon::HugeInformationCircle,
+        Icon::HugeLoading03,
+        Icon::HugeMinusSign,
+        Icon::HugeRocket01,
         Icon::HugeSearch,
+        Icon::HugeTick02,
         Icon::HugeUnfoldMore,
+        Icon::LoaderCircle,
         Icon::LockKeyhole,
         Icon::Mail,
         Icon::Map,
         Icon::Maximize,
         Icon::Mic,
+        Icon::Minus,
         Icon::Pencil,
         Icon::Play,
         Icon::Plus,
         Icon::RotateCcw,
         Icon::Search,
+        Icon::SpinnerArc,
+        Icon::SpinnerTrack,
         Icon::Square,
         Icon::ThumbsDown,
         Icon::ThumbsUp,
@@ -99,21 +123,33 @@ impl Icon {
             Icon::Dices => "dices",
             Icon::ExternalLink => "external-link",
             Icon::Globe => "globe",
+            Icon::HugeArrowDownRight01 => "huge-arrow-down-right-01",
             Icon::HugeArrowLeft01 => "huge-arrow-left-01",
             Icon::HugeArrowRight01 => "huge-arrow-right-01",
+            Icon::HugeArrowUpRight01 => "huge-arrow-up-right-01",
+            Icon::HugeCancel01 => "huge-cancel-01",
+            Icon::HugeClock01 => "huge-clock-01",
             Icon::HugeInformationCircle => "huge-information-circle",
+            Icon::HugeLoading03 => "huge-loading-03",
+            Icon::HugeMinusSign => "huge-minus-sign",
+            Icon::HugeRocket01 => "huge-rocket-01",
             Icon::HugeSearch => "huge-search",
+            Icon::HugeTick02 => "huge-tick-02",
             Icon::HugeUnfoldMore => "huge-unfold-more",
+            Icon::LoaderCircle => "loader-circle",
             Icon::LockKeyhole => "lock-keyhole",
             Icon::Mail => "mail",
             Icon::Map => "map",
             Icon::Maximize => "maximize",
             Icon::Mic => "mic",
+            Icon::Minus => "minus",
             Icon::Pencil => "pencil",
             Icon::Play => "play",
             Icon::Plus => "plus",
             Icon::RotateCcw => "rotate-ccw",
             Icon::Search => "search",
+            Icon::SpinnerArc => "spinner-arc",
+            Icon::SpinnerTrack => "spinner-track",
             Icon::Square => "square",
             Icon::ThumbsDown => "thumbs-down",
             Icon::ThumbsUp => "thumbs-up",
@@ -141,23 +177,33 @@ impl Icon {
             Icon::Dices => include_str!("../assets/icons/dices.svg"),
             Icon::ExternalLink => include_str!("../assets/icons/external-link.svg"),
             Icon::Globe => include_str!("../assets/icons/globe.svg"),
+            Icon::HugeArrowDownRight01 => include_str!("../assets/icons/huge-arrow-down-right-01.svg"),
             Icon::HugeArrowLeft01 => include_str!("../assets/icons/huge-arrow-left-01.svg"),
             Icon::HugeArrowRight01 => include_str!("../assets/icons/huge-arrow-right-01.svg"),
-            Icon::HugeInformationCircle => {
-                include_str!("../assets/icons/huge-information-circle.svg")
-            }
+            Icon::HugeArrowUpRight01 => include_str!("../assets/icons/huge-arrow-up-right-01.svg"),
+            Icon::HugeCancel01 => include_str!("../assets/icons/huge-cancel-01.svg"),
+            Icon::HugeClock01 => include_str!("../assets/icons/huge-clock-01.svg"),
+            Icon::HugeInformationCircle => include_str!("../assets/icons/huge-information-circle.svg"),
+            Icon::HugeLoading03 => include_str!("../assets/icons/huge-loading-03.svg"),
+            Icon::HugeMinusSign => include_str!("../assets/icons/huge-minus-sign.svg"),
+            Icon::HugeRocket01 => include_str!("../assets/icons/huge-rocket-01.svg"),
             Icon::HugeSearch => include_str!("../assets/icons/huge-search.svg"),
+            Icon::HugeTick02 => include_str!("../assets/icons/huge-tick-02.svg"),
             Icon::HugeUnfoldMore => include_str!("../assets/icons/huge-unfold-more.svg"),
+            Icon::LoaderCircle => include_str!("../assets/icons/loader-circle.svg"),
             Icon::LockKeyhole => include_str!("../assets/icons/lock-keyhole.svg"),
             Icon::Mail => include_str!("../assets/icons/mail.svg"),
             Icon::Map => include_str!("../assets/icons/map.svg"),
             Icon::Maximize => include_str!("../assets/icons/maximize.svg"),
             Icon::Mic => include_str!("../assets/icons/mic.svg"),
+            Icon::Minus => include_str!("../assets/icons/minus.svg"),
             Icon::Pencil => include_str!("../assets/icons/pencil.svg"),
             Icon::Play => include_str!("../assets/icons/play.svg"),
             Icon::Plus => include_str!("../assets/icons/plus.svg"),
             Icon::RotateCcw => include_str!("../assets/icons/rotate-ccw.svg"),
             Icon::Search => include_str!("../assets/icons/search.svg"),
+            Icon::SpinnerArc => include_str!("../assets/icons/spinner-arc.svg"),
+            Icon::SpinnerTrack => include_str!("../assets/icons/spinner-track.svg"),
             Icon::Square => include_str!("../assets/icons/square.svg"),
             Icon::ThumbsDown => include_str!("../assets/icons/thumbs-down.svg"),
             Icon::ThumbsUp => include_str!("../assets/icons/thumbs-up.svg"),
@@ -174,114 +220,54 @@ impl Icon {
     /// renderers that take a body and a view box (Rune's `Icon`).
     pub const fn body(self) -> &'static str {
         match self {
-            Icon::ArrowDown => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></g>"#
-            }
-            Icon::ArrowRight => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></g>"#
-            }
-            Icon::ArrowUp => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"#
-            }
-            Icon::Check => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"#
-            }
-            Icon::ChevronDown => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></g>"#
-            }
-            Icon::ChevronLeft => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></g>"#
-            }
-            Icon::ChevronRight => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></g>"#
-            }
-            Icon::ChevronsUpDown => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"#
-            }
-            Icon::Copy => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"#
-            }
-            Icon::Dices => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /><path d="M6 18h.01" /><path d="M10 14h.01" /><path d="M15 6h.01" /><path d="M18 9h.01" /></g>"#
-            }
-            Icon::ExternalLink => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"#
-            }
-            Icon::Globe => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></g>"#
-            }
-            Icon::HugeArrowLeft01 => {
-                r#"<g fill="none"><path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
-            }
-            Icon::HugeArrowRight01 => {
-                r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
-            }
-            Icon::HugeInformationCircle => {
-                r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
-            }
-            Icon::HugeSearch => {
-                r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
-            }
-            Icon::HugeUnfoldMore => {
-                r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
-            }
-            Icon::LockKeyhole => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"#
-            }
-            Icon::Mail => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></g>"#
-            }
-            Icon::Map => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></g>"#
-            }
-            Icon::Maximize => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></g>"#
-            }
-            Icon::Mic => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#
-            }
-            Icon::Pencil => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#
-            }
-            Icon::Play => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></g>"#
-            }
-            Icon::Plus => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></g>"#
-            }
-            Icon::RotateCcw => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>"#
-            }
-            Icon::Search => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#
-            }
-            Icon::Square => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#
-            }
-            Icon::ThumbsDown => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" /><path d="M17 14V2" /></g>"#
-            }
-            Icon::ThumbsUp => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /><path d="M7 10v12" /></g>"#
-            }
-            Icon::Timer => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2" /><line x1="12" x2="15" y1="14" y2="11" /><circle cx="12" cy="14" r="8" /></g>"#
-            }
-            Icon::Trash2 => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></g>"#
-            }
-            Icon::TriangleAlert => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></g>"#
-            }
-            Icon::X => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></g>"#
-            }
-            Icon::ZoomIn => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#
-            }
-            Icon::ZoomOut => {
-                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#
-            }
+            Icon::ArrowDown => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></g>"#,
+            Icon::ArrowRight => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></g>"#,
+            Icon::ArrowUp => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"#,
+            Icon::Check => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"#,
+            Icon::ChevronDown => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></g>"#,
+            Icon::ChevronLeft => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></g>"#,
+            Icon::ChevronRight => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></g>"#,
+            Icon::ChevronsUpDown => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"#,
+            Icon::Copy => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"#,
+            Icon::Dices => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /><path d="M6 18h.01" /><path d="M10 14h.01" /><path d="M15 6h.01" /><path d="M18 9h.01" /></g>"#,
+            Icon::ExternalLink => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"#,
+            Icon::Globe => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></g>"#,
+            Icon::HugeArrowDownRight01 => r#"<g fill="none"><path d="M9 17.3497C9 17.3497 15.9383 17.8924 16.9154 16.9154C17.8924 15.9383 17.3496 9 17.3496 9M16.5 16.5L6.5 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"#,
+            Icon::HugeArrowLeft01 => r#"<g fill="none"><path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeArrowRight01 => r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeArrowUpRight01 => r#"<g fill="none"><path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"#,
+            Icon::HugeCancel01 => r#"<g fill="none"><path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"#,
+            Icon::HugeClock01 => r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 8V12L14 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeInformationCircle => r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeLoading03 => r#"<g fill="none"><path d="M12 3V6" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M12 18V21" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M21 12L18 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M6 12L3 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M18.3635 5.63672L16.2422 7.75804" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7.75804 16.2422L5.63672 18.3635" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M18.3635 18.3635L16.2422 16.2422" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7.75804 7.75804L5.63672 5.63672" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeMinusSign => r#"<g fill="none"><path d="M20 12L4 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"#,
+            Icon::HugeRocket01 => r#"<g fill="none"><path d="M6.21875 11.618L3.31189 11.2378C2.71644 11.1606 2.31883 10.5841 2.58348 10.0458C3.42523 8.33365 5.6195 6.35437 9.73988 6.68079M6.21875 11.618C7.27445 9.85426 8.57175 8.00435 9.73988 6.68079M6.21875 11.618L11.882 17.2812M9.73988 6.68079C13.4105 2.58986 17.1745 1.728 19.5937 2.06685C20.5508 2.2009 21.2991 2.94917 21.4332 3.90626C21.772 6.32551 20.9101 10.0895 16.8192 13.7601M11.882 17.2812L12.2622 20.1881C12.3394 20.7836 12.9159 21.1812 13.4542 20.9165C15.1664 20.0748 17.1456 17.8805 16.8192 13.7601M11.882 17.2812C13.6457 16.2255 15.4956 14.9282 16.8192 13.7601" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M17.5 8C17.5 6.89543 16.6046 6 15.5 6C14.3954 6 13.5 6.89543 13.5 8C13.5 9.10457 14.3954 10 15.5 10C16.6046 10 17.5 9.10457 17.5 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M4 22L8 18M4 17L5.5 15.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeSearch => r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::HugeTick02 => r#"<g fill="none"><path d="M5 14L8.5 17.5L19 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"#,
+            Icon::HugeUnfoldMore => r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+            Icon::LoaderCircle => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></g>"#,
+            Icon::LockKeyhole => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"#,
+            Icon::Mail => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></g>"#,
+            Icon::Map => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></g>"#,
+            Icon::Maximize => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></g>"#,
+            Icon::Mic => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#,
+            Icon::Minus => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></g>"#,
+            Icon::Pencil => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#,
+            Icon::Play => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></g>"#,
+            Icon::Plus => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></g>"#,
+            Icon::RotateCcw => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>"#,
+            Icon::Search => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#,
+            Icon::SpinnerArc => r#"<g fill="none"><path d="M12 2.4a9.6 9.6 0 0 1 9.6 9.6" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></g>"#,
+            Icon::SpinnerTrack => r#"<g fill="none"><circle cx="12" cy="12" r="9.6" stroke="currentColor" stroke-width="3"/></g>"#,
+            Icon::Square => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#,
+            Icon::ThumbsDown => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" /><path d="M17 14V2" /></g>"#,
+            Icon::ThumbsUp => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /><path d="M7 10v12" /></g>"#,
+            Icon::Timer => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2" /><line x1="12" x2="15" y1="14" y2="11" /><circle cx="12" cy="14" r="8" /></g>"#,
+            Icon::Trash2 => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></g>"#,
+            Icon::TriangleAlert => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></g>"#,
+            Icon::X => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></g>"#,
+            Icon::ZoomIn => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#,
+            Icon::ZoomOut => r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#,
         }
     }
 
@@ -300,21 +286,33 @@ impl Icon {
             Icon::Dices => 24.0,
             Icon::ExternalLink => 24.0,
             Icon::Globe => 24.0,
+            Icon::HugeArrowDownRight01 => 24.0,
             Icon::HugeArrowLeft01 => 24.0,
             Icon::HugeArrowRight01 => 24.0,
+            Icon::HugeArrowUpRight01 => 24.0,
+            Icon::HugeCancel01 => 24.0,
+            Icon::HugeClock01 => 24.0,
             Icon::HugeInformationCircle => 24.0,
+            Icon::HugeLoading03 => 24.0,
+            Icon::HugeMinusSign => 24.0,
+            Icon::HugeRocket01 => 24.0,
             Icon::HugeSearch => 24.0,
+            Icon::HugeTick02 => 24.0,
             Icon::HugeUnfoldMore => 24.0,
+            Icon::LoaderCircle => 24.0,
             Icon::LockKeyhole => 24.0,
             Icon::Mail => 24.0,
             Icon::Map => 24.0,
             Icon::Maximize => 24.0,
             Icon::Mic => 24.0,
+            Icon::Minus => 24.0,
             Icon::Pencil => 24.0,
             Icon::Play => 24.0,
             Icon::Plus => 24.0,
             Icon::RotateCcw => 24.0,
             Icon::Search => 24.0,
+            Icon::SpinnerArc => 24.0,
+            Icon::SpinnerTrack => 24.0,
             Icon::Square => 24.0,
             Icon::ThumbsDown => 24.0,
             Icon::ThumbsUp => 24.0,
@@ -342,21 +340,33 @@ impl Icon {
             Icon::Dices => "notra/icons/dices.svg",
             Icon::ExternalLink => "notra/icons/external-link.svg",
             Icon::Globe => "notra/icons/globe.svg",
+            Icon::HugeArrowDownRight01 => "notra/icons/huge-arrow-down-right-01.svg",
             Icon::HugeArrowLeft01 => "notra/icons/huge-arrow-left-01.svg",
             Icon::HugeArrowRight01 => "notra/icons/huge-arrow-right-01.svg",
+            Icon::HugeArrowUpRight01 => "notra/icons/huge-arrow-up-right-01.svg",
+            Icon::HugeCancel01 => "notra/icons/huge-cancel-01.svg",
+            Icon::HugeClock01 => "notra/icons/huge-clock-01.svg",
             Icon::HugeInformationCircle => "notra/icons/huge-information-circle.svg",
+            Icon::HugeLoading03 => "notra/icons/huge-loading-03.svg",
+            Icon::HugeMinusSign => "notra/icons/huge-minus-sign.svg",
+            Icon::HugeRocket01 => "notra/icons/huge-rocket-01.svg",
             Icon::HugeSearch => "notra/icons/huge-search.svg",
+            Icon::HugeTick02 => "notra/icons/huge-tick-02.svg",
             Icon::HugeUnfoldMore => "notra/icons/huge-unfold-more.svg",
+            Icon::LoaderCircle => "notra/icons/loader-circle.svg",
             Icon::LockKeyhole => "notra/icons/lock-keyhole.svg",
             Icon::Mail => "notra/icons/mail.svg",
             Icon::Map => "notra/icons/map.svg",
             Icon::Maximize => "notra/icons/maximize.svg",
             Icon::Mic => "notra/icons/mic.svg",
+            Icon::Minus => "notra/icons/minus.svg",
             Icon::Pencil => "notra/icons/pencil.svg",
             Icon::Play => "notra/icons/play.svg",
             Icon::Plus => "notra/icons/plus.svg",
             Icon::RotateCcw => "notra/icons/rotate-ccw.svg",
             Icon::Search => "notra/icons/search.svg",
+            Icon::SpinnerArc => "notra/icons/spinner-arc.svg",
+            Icon::SpinnerTrack => "notra/icons/spinner-track.svg",
             Icon::Square => "notra/icons/square.svg",
             Icon::ThumbsDown => "notra/icons/thumbs-down.svg",
             Icon::ThumbsUp => "notra/icons/thumbs-up.svg",
@@ -383,186 +393,54 @@ impl Icon {
 
 #[cfg(feature = "rune")]
 static RUNE_ICONS: &[::rune::Icon] = &[
-    ::rune::Icon {
-        name: "arrow-down",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "arrow-right",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "arrow-up",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "check",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "chevron-down",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "chevron-left",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "chevron-right",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "chevrons-up-down",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "copy",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "dices",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /><path d="M6 18h.01" /><path d="M10 14h.01" /><path d="M15 6h.01" /><path d="M18 9h.01" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "external-link",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "globe",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "huge-arrow-left-01",
-        view: 24.0,
-        body: r#"<g fill="none"><path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
-    },
-    ::rune::Icon {
-        name: "huge-arrow-right-01",
-        view: 24.0,
-        body: r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
-    },
-    ::rune::Icon {
-        name: "huge-information-circle",
-        view: 24.0,
-        body: r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
-    },
-    ::rune::Icon {
-        name: "huge-search",
-        view: 24.0,
-        body: r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
-    },
-    ::rune::Icon {
-        name: "huge-unfold-more",
-        view: 24.0,
-        body: r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
-    },
-    ::rune::Icon {
-        name: "lock-keyhole",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "mail",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "map",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "maximize",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "mic",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "pencil",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "play",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "plus",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "rotate-ccw",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "search",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "square",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "thumbs-down",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" /><path d="M17 14V2" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "thumbs-up",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /><path d="M7 10v12" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "timer",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2" /><line x1="12" x2="15" y1="14" y2="11" /><circle cx="12" cy="14" r="8" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "trash-2",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "triangle-alert",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "x",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "zoom-in",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#,
-    },
-    ::rune::Icon {
-        name: "zoom-out",
-        view: 24.0,
-        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="8" x2="14" y1="11" y2="11" /></g>"#,
-    },
+    ::rune::Icon { name: "arrow-down", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></g>"# },
+    ::rune::Icon { name: "arrow-right", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></g>"# },
+    ::rune::Icon { name: "arrow-up", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></g>"# },
+    ::rune::Icon { name: "check", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g>"# },
+    ::rune::Icon { name: "chevron-down", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></g>"# },
+    ::rune::Icon { name: "chevron-left", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></g>"# },
+    ::rune::Icon { name: "chevron-right", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></g>"# },
+    ::rune::Icon { name: "chevrons-up-down", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5" /><path d="m7 9 5-5 5 5" /></g>"# },
+    ::rune::Icon { name: "copy", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></g>"# },
+    ::rune::Icon { name: "dices", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /><path d="M6 18h.01" /><path d="M10 14h.01" /><path d="M15 6h.01" /><path d="M18 9h.01" /></g>"# },
+    ::rune::Icon { name: "external-link", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></g>"# },
+    ::rune::Icon { name: "globe", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></g>"# },
+    ::rune::Icon { name: "huge-arrow-down-right-01", view: 24.0, body: r#"<g fill="none"><path d="M9 17.3497C9 17.3497 15.9383 17.8924 16.9154 16.9154C17.8924 15.9383 17.3496 9 17.3496 9M16.5 16.5L6.5 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"# },
+    ::rune::Icon { name: "huge-arrow-left-01", view: 24.0, body: r#"<g fill="none"><path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-arrow-right-01", view: 24.0, body: r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-arrow-up-right-01", view: 24.0, body: r#"<g fill="none"><path d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"# },
+    ::rune::Icon { name: "huge-cancel-01", view: 24.0, body: r#"<g fill="none"><path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"# },
+    ::rune::Icon { name: "huge-clock-01", view: 24.0, body: r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 8V12L14 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-information-circle", view: 24.0, body: r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-loading-03", view: 24.0, body: r#"<g fill="none"><path d="M12 3V6" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M12 18V21" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M21 12L18 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M6 12L3 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M18.3635 5.63672L16.2422 7.75804" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7.75804 16.2422L5.63672 18.3635" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M18.3635 18.3635L16.2422 16.2422" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M7.75804 7.75804L5.63672 5.63672" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-minus-sign", view: 24.0, body: r#"<g fill="none"><path d="M20 12L4 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"# },
+    ::rune::Icon { name: "huge-rocket-01", view: 24.0, body: r#"<g fill="none"><path d="M6.21875 11.618L3.31189 11.2378C2.71644 11.1606 2.31883 10.5841 2.58348 10.0458C3.42523 8.33365 5.6195 6.35437 9.73988 6.68079M6.21875 11.618C7.27445 9.85426 8.57175 8.00435 9.73988 6.68079M6.21875 11.618L11.882 17.2812M9.73988 6.68079C13.4105 2.58986 17.1745 1.728 19.5937 2.06685C20.5508 2.2009 21.2991 2.94917 21.4332 3.90626C21.772 6.32551 20.9101 10.0895 16.8192 13.7601M11.882 17.2812L12.2622 20.1881C12.3394 20.7836 12.9159 21.1812 13.4542 20.9165C15.1664 20.0748 17.1456 17.8805 16.8192 13.7601M11.882 17.2812C13.6457 16.2255 15.4956 14.9282 16.8192 13.7601" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M17.5 8C17.5 6.89543 16.6046 6 15.5 6C14.3954 6 13.5 6.89543 13.5 8C13.5 9.10457 14.3954 10 15.5 10C16.6046 10 17.5 9.10457 17.5 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M4 22L8 18M4 17L5.5 15.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-search", view: 24.0, body: r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "huge-tick-02", view: 24.0, body: r#"<g fill="none"><path d="M5 14L8.5 17.5L19 6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></g>"# },
+    ::rune::Icon { name: "huge-unfold-more", view: 24.0, body: r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"# },
+    ::rune::Icon { name: "loader-circle", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></g>"# },
+    ::rune::Icon { name: "lock-keyhole", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"# },
+    ::rune::Icon { name: "mail", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></g>"# },
+    ::rune::Icon { name: "map", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" /><path d="M15 5.764v15" /><path d="M9 3.236v15" /></g>"# },
+    ::rune::Icon { name: "maximize", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></g>"# },
+    ::rune::Icon { name: "mic", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"# },
+    ::rune::Icon { name: "minus", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></g>"# },
+    ::rune::Icon { name: "pencil", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"# },
+    ::rune::Icon { name: "play", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></g>"# },
+    ::rune::Icon { name: "plus", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></g>"# },
+    ::rune::Icon { name: "rotate-ccw", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g>"# },
+    ::rune::Icon { name: "search", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"# },
+    ::rune::Icon { name: "spinner-arc", view: 24.0, body: r#"<g fill="none"><path d="M12 2.4a9.6 9.6 0 0 1 9.6 9.6" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></g>"# },
+    ::rune::Icon { name: "spinner-track", view: 24.0, body: r#"<g fill="none"><circle cx="12" cy="12" r="9.6" stroke="currentColor" stroke-width="3"/></g>"# },
+    ::rune::Icon { name: "square", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"# },
+    ::rune::Icon { name: "thumbs-down", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z" /><path d="M17 14V2" /></g>"# },
+    ::rune::Icon { name: "thumbs-up", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /><path d="M7 10v12" /></g>"# },
+    ::rune::Icon { name: "timer", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2" /><line x1="12" x2="15" y1="14" y2="11" /><circle cx="12" cy="14" r="8" /></g>"# },
+    ::rune::Icon { name: "trash-2", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></g>"# },
+    ::rune::Icon { name: "triangle-alert", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></g>"# },
+    ::rune::Icon { name: "x", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></g>"# },
+    ::rune::Icon { name: "zoom-in", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="11" x2="11" y1="8" y2="14" /><line x1="8" x2="14" y1="11" y2="11" /></g>"# },
+    ::rune::Icon { name: "zoom-out", view: 24.0, body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" x2="16.65" y1="21" y2="16.65" /><line x1="8" x2="14" y1="11" y2="11" /></g>"# },
 ];
 
 #[cfg(test)]

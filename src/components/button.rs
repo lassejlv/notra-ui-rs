@@ -107,6 +107,16 @@ impl ButtonSize {
     pub fn is_icon(self) -> bool {
         self.metrics().padding_x.is_none()
     }
+
+    /// Padding on the side that holds an icon (`has-data-[icon=inline-*]:p*-*`), for
+    /// text sizes.
+    pub fn icon_side_padding(self) -> Option<f32> {
+        match self {
+            ButtonSize::Xs | ButtonSize::Sm => Some(6.0),
+            ButtonSize::Default | ButtonSize::Lg => Some(8.0),
+            _ => None,
+        }
+    }
 }
 
 /// What hovering changes.
@@ -277,9 +287,11 @@ pub mod loading {
     use super::*;
 
     /// `button-swap-in`: content rises in from 0.45em below, unblurring.
-    pub const SWAP_IN: Tween = Tween::new(Duration::from_millis(200), ease::OUT);
+    pub const SWAP_IN: Tween = Tween::new(Duration::from_millis(280), ease::OUT);
+    /// `button-swap-out`'s curve.
+    pub const SWAP_OUT_EASE: CubicBezier = CubicBezier::new(0.45, 0.0, 0.25, 1.0);
     /// `button-swap-out`: content rises out 0.45em above, blurring.
-    pub const SWAP_OUT: Tween = Tween::new(Duration::from_millis(150), ease::OUT);
+    pub const SWAP_OUT: Tween = Tween::new(Duration::from_millis(360), SWAP_OUT_EASE);
     /// The label swaps back in 70 ms after loading ends.
     pub const LABEL_RETURN_DELAY: Duration = Duration::from_millis(70);
     /// Each dot's swap-in delay.
@@ -310,7 +322,7 @@ pub mod loading {
     /// The progress fill's width transition.
     pub const PROGRESS_FILL: Tween = Tween::new(Duration::from_millis(300), ease::PROGRESS);
     /// `button-progress-out`: the full bar holds, then fades.
-    pub const PROGRESS_OUT: Duration = Duration::from_millis(300);
+    pub const PROGRESS_OUT: Duration = Duration::from_millis(600);
     /// The fill is the text colour at 15 %.
     pub const PROGRESS_ALPHA: f32 = 0.15;
 
@@ -375,7 +387,7 @@ pub mod loading {
     /// Opacity of the completed progress bar `elapsed` into its fade.
     pub fn progress_out(elapsed: Duration) -> f32 {
         let t = elapsed.as_secs_f32() / PROGRESS_OUT.as_secs_f32();
-        keyframes(&[(0.0, 1.0), (0.5, 1.0), (1.0, 0.0)], ease::OUT, t)
+        keyframes(&[(0.0, 1.0), (0.5, 1.0), (1.0, 0.0)], ease::CSS_EASE_OUT, t)
     }
 
     /// How long the swap out of the dots takes after loading ends.
