@@ -27,6 +27,7 @@ use crate::icons::Icon;
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+pub mod overlays;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;

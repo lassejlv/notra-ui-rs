@@ -14,6 +14,7 @@ use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
+#[allow(clippy::type_complexity)]
 pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
 
 #[derive(Default)]
