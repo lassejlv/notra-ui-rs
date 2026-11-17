@@ -5,6 +5,7 @@
 //! ```
 
 mod button;
+mod navigation;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -22,7 +23,12 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![button::page(window, cx)]
+    vec![
+        button::page(window, cx),
+        navigation::sidebar_page(window, cx),
+        navigation::icon_tabs_page(window, cx),
+        navigation::step_slider_page(window, cx),
+    ]
 }
 
 struct Gallery {
