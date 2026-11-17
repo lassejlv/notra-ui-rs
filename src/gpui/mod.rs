@@ -28,12 +28,18 @@ use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
 mod card;
+mod code_block;
 pub mod data_parts;
+mod package_command;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use crate::components::card::CardVariant;
+pub use crate::components::code_block::Language;
+pub use crate::components::package_command::PackageManager;
 pub use button::Button;
 pub use card::{Card, CardEmpty, CardGrid, CardReveal, CardSection};
+pub use code_block::CodeBlock;
+pub use package_command::{PackageCommand, SelectedPackageManager};
 
 static LIGHT: Theme = Theme::light();
 

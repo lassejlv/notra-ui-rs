@@ -6,6 +6,8 @@
 
 mod button;
 mod card;
+mod code_block;
+mod package_command;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -23,7 +25,12 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![button::page(window, cx), card::page(window, cx)]
+    vec![
+        button::page(window, cx),
+        card::page(window, cx),
+        code_block::page(window, cx),
+        package_command::page(window, cx),
+    ]
 }
 
 struct Gallery {

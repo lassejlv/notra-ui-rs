@@ -9,6 +9,8 @@
 
 mod button;
 mod card;
+mod code_block;
+mod package_command;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
@@ -18,6 +20,8 @@ use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
     ("button", "Button", button::view),
     ("card", "Card", card::view),
+    ("code-block", "Code Block", code_block::view),
+    ("package-command", "Package Command", package_command::view),
 ];
 
 #[derive(Default)]
@@ -26,6 +30,8 @@ pub struct State {
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
     pub card: card::Demo,
+    pub code_block: code_block::Demo,
+    pub package_command: package_command::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -183,6 +189,22 @@ fn spec() -> AppSpec<State> {
             ("card-revealed", |s| {
                 page_scene("card", false)(s);
                 s.card.revealed = true;
+            }),
+            ("code-block", |s| page_scene("code-block", false)(s)),
+            ("code-block-dark", |s| page_scene("code-block", true)(s)),
+            ("code-block-astro", |s| {
+                page_scene("code-block", false)(s);
+                s.code_block.framework = 1;
+            }),
+            ("package-command", |s| {
+                page_scene("package-command", false)(s)
+            }),
+            ("package-command-dark", |s| {
+                page_scene("package-command", true)(s)
+            }),
+            ("package-command-pnpm", |s| {
+                page_scene("package-command", false)(s);
+                s.package_command.manager = notra_ui::rune::PackageManager::Pnpm;
             }),
             ("button-loading", |s| {
                 page_scene("button", false)(s);

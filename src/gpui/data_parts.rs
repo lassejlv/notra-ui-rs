@@ -537,7 +537,7 @@ impl TabOption {
     }
 }
 
-type TabHandler = Rc<dyn Fn(usize, &mut Window, &mut App)>;
+type TabHandler = Rc<dyn Fn(&usize, &mut Window, &mut App)>;
 
 /// base-ui tabs with the sliding underline, as the code block and package
 /// command draw them on their shell.
@@ -567,7 +567,8 @@ impl Tabs {
         self
     }
 
-    pub fn on_change(mut self, handler: impl Fn(usize, &mut Window, &mut App) + 'static) -> Self {
+    /// Called with the chosen tab's index; takes `cx.listener(..)`.
+    pub fn on_change(mut self, handler: impl Fn(&usize, &mut Window, &mut App) + 'static) -> Self {
         self.on_change = Some(Rc::new(handler));
         self
     }
@@ -664,7 +665,7 @@ impl RenderOnce for Tabs {
                 .child(option.label)
                 .on_hover(ease_on_hover(hover_state))
                 .when_some(on_change, |d, handler| {
-                    d.on_click(move |_, window, cx| handler(i, window, cx))
+                    d.on_click(move |_, window, cx| handler(&i, window, cx))
                 })
         });
         div()

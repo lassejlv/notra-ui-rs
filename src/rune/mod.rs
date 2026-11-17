@@ -28,13 +28,19 @@ use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
 mod card;
+mod code_block;
 pub mod data_parts;
+mod package_command;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use crate::components::card::CardVariant;
+pub use crate::components::code_block::Language;
+pub use crate::components::package_command::PackageManager;
 pub use button::Button;
 pub use card::{Card, CardEmpty, CardSection, card_grid, card_reveal};
+pub use code_block::CodeBlock;
 pub use data_parts::tooltip_look;
+pub use package_command::PackageCommand;
 
 /// Every bundled face, for `AppSpec::fonts`.
 pub const FONTS: &[&[u8]] = fonts::ALL;
