@@ -3,23 +3,22 @@
 use std::time::{Duration, Instant};
 
 use ::gpui::{
-    AnyElement, App, AppContext as _, Context, ElementId, Entity, FocusHandle, FontWeight,
-    HighlightStyle, InteractiveElement, IntoElement, ParentElement, Render, RenderOnce,
-    ScrollHandle, SharedString, StatefulInteractiveElement, Styled, StyledText, Subscription,
-    Window, div, prelude::*, px,
+    AnyElement, App, AppContext as _, Context, ElementId, Entity, FontWeight, HighlightStyle,
+    InteractiveElement, IntoElement, ParentElement, Render, RenderOnce, ScrollHandle, SharedString,
+    Styled, StyledText, Subscription, Window, div, prelude::*, px,
 };
 
+use super::ActiveTheme;
 use super::terminal::{
-    FrameGlyph, PromptEvent, PromptInput, TerminalWindow, bind_prompt, pulse_opacity, rich_text,
+    Disclosure, FrameGlyph, PromptEvent, PromptInput, TerminalWindow, bind_prompt, disclosure,
+    disclosure_trigger, pulse_opacity, rich_text,
 };
-use super::{ActiveTheme, shadows};
 use crate::components::claude_code::{
     self as model, CONTENT_PADDING_X, CONTENT_PADDING_Y, ClaudeCodeEffort, ClaudeCodeMode,
     ClaudeCodePalette, FONT_SIZE, GAP, Header, LINE_HEIGHT, RESULT_GLYPH, SPINNER, SPINNER_FRAMES,
     Spinner, Todo, ToolCall, ToolStatus, Turn, TurnStatus, TurnSummary, session,
 };
 use crate::components::terminal::{Rich, Run, ch};
-use crate::motion::Animated;
 use crate::theme::Shadow;
 
 fn palette(cx: &App) -> ClaudeCodePalette {
@@ -282,63 +281,20 @@ impl RenderOnce for ClaudeCodeMessage {
     }
 }
 
-/// Open state and pointer of a collapsible trigger.
-struct Disclosure {
-    open: bool,
-    focus: FocusHandle,
-    hover: Animated,
-}
-
-fn disclosure(
-    id: &ElementId,
-    default_open: bool,
-    window: &mut Window,
-    cx: &mut App,
-) -> Entity<Disclosure> {
-    window.use_keyed_state(id.clone(), cx, |_, cx| Disclosure {
-        open: default_open,
-        focus: cx.focus_handle(),
-        hover: Animated::new(0.0, model::HINT_FADE),
-    })
-}
-
-/// A Base UI collapsible trigger: focusable, toggles on click, Enter and Space.
+/// A Base UI collapsible trigger in Claude Code's focus ring.
 fn trigger(
     id: ElementId,
     state: &Entity<Disclosure>,
     p: &ClaudeCodePalette,
     cx: &App,
 ) -> ::gpui::Stateful<::gpui::Div> {
-    let focus = state.read(cx).focus.clone();
-    let toggle = state.clone();
-    let hover = state.clone();
-    div()
-        .id(id)
-        .track_focus(&focus)
-        .tab_stop(true)
-        .rounded(px(model::FOCUS_RADIUS))
-        .cursor_pointer()
-        .focus_visible(|s| {
-            s.shadow(shadows(&[Shadow::drop(
-                0.0,
-                0.0,
-                model::FOCUS_RING,
-                p.muted.fade(0.6),
-            )]))
-        })
-        .on_hover(move |hovered, _, cx| {
-            hover.update(cx, |s, cx| {
-                s.hover
-                    .set(if *hovered { 1.0 } else { 0.0 }, Instant::now());
-                cx.notify();
-            });
-        })
-        .on_click(move |_, _, cx| {
-            toggle.update(cx, |s, cx| {
-                s.open = !s.open;
-                cx.notify();
-            });
-        })
+    disclosure_trigger(
+        id,
+        state,
+        Shadow::drop(0.0, 0.0, model::FOCUS_RING, p.muted.fade(0.6)),
+        model::FOCUS_RADIUS,
+        cx,
+    )
 }
 
 /// `∴ Thinking… (click to expand)` over the reasoning.
@@ -379,7 +335,7 @@ impl ClaudeCodeThinking {
 impl RenderOnce for ClaudeCodeThinking {
     fn render(self, window: &mut Window, cx: &mut App) -> impl IntoElement {
         let p = palette(cx);
-        let state = disclosure(&self.id, self.default_open, window, cx);
+        let state = disclosure(&self.id, self.default_open, model::HINT_FADE, window, cx);
         let open = state.read(cx).open;
         let label = Rich::new()
             .push(Run::new(self.label.to_string(), p.muted).italic())
@@ -531,7 +487,7 @@ impl RenderOnce for ClaudeCodeToolCall {
         let mut root = div().flex().flex_col().min_w_0().child(headline);
         match call.detail.clone() {
             Some(detail) => {
-                let state = disclosure(&self.id, false, window, cx);
+                let state = disclosure(&self.id, false, model::HINT_FADE, window, cx);
                 let open = state.read(cx).open;
                 root = root
                     .child(
@@ -579,7 +535,7 @@ impl RenderOnce for ClaudeCodeToolSummary {
         } else {
             format!("{}s", self.noun)
         };
-        let state = disclosure(&self.id, false, window, cx);
+        let state = disclosure(&self.id, false, model::HINT_FADE, window, cx);
         let (open, focused, hint) = {
             let s = state.read(cx);
             let now = Instant::now();

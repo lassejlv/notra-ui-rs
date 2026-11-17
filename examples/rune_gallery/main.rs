@@ -9,6 +9,7 @@
 
 mod button;
 mod claude_code;
+mod codex;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
@@ -20,6 +21,7 @@ pub type PageView = fn(&State, &Theme) -> El;
 pub const PAGES: &[(&str, &str, PageView)] = &[
     ("button", "Button", button::view),
     ("claude-code", "Claude Code", claude_code::view),
+    ("codex", "Codex", codex::view),
 ];
 
 #[derive(Default)]
@@ -28,6 +30,7 @@ pub struct State {
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
     pub claude_code: claude_code::Demo,
+    pub codex: codex::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -178,6 +181,7 @@ fn page_scene(slug: &str, dark: bool) -> impl Fn(&mut State) {
 fn poll(s: &mut State, clock: f64, tx: &mut Tx) -> bool {
     let mut changed = false;
     changed |= claude_code::poll(s, clock, tx);
+    changed |= codex::poll(s, clock, tx);
     changed
 }
 
@@ -196,6 +200,16 @@ fn spec() -> AppSpec<State> {
             ("claude-code-playing-dark", |s| {
                 page_scene("claude-code", true)(s);
                 s.claude_code = claude_code::Demo::playing();
+            }),
+            ("codex", |s| page_scene("codex", false)(s)),
+            ("codex-dark", |s| page_scene("codex", true)(s)),
+            ("codex-playing", |s| {
+                page_scene("codex", false)(s);
+                s.codex = codex::Demo::playing();
+            }),
+            ("codex-playing-dark", |s| {
+                page_scene("codex", true)(s);
+                s.codex = codex::Demo::playing();
             }),
             ("button-loading", |s| {
                 page_scene("button", false)(s);

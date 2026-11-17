@@ -1,13 +1,14 @@
 //! Claude Code for Rune: the terminal block's parts and the playable demo.
 
-use std::collections::HashSet;
 use std::rc::Rc;
 use std::time::Duration;
 
 use ::rune::tok::TextStyle;
 use ::rune::{El, Key, KeyEvent, Span, TextEdit, Tx, col, el, rich, row, text, text_input};
 
-use super::terminal::{TerminalWindow, code_font, frame_glyph, pulse, rich_text};
+use super::terminal::{
+    Disclosures, TerminalWindow, code_font, disclosure_trigger, frame_glyph, pulse, rich_text,
+};
 use super::{ToRune, tween};
 use crate::components::claude_code::{
     self as model, CONTENT_PADDING_X, CONTENT_PADDING_Y, ClaudeCodeEffort, ClaudeCodeMode,
@@ -44,49 +45,24 @@ fn gutter_row(gutter: f32, lead: El, content: El) -> El {
         .child(content.grow(1.0).shrink().min_w(0.0))
 }
 
-/// Which collapsibles are open, owned by the app.
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct ClaudeCodeState {
-    open: HashSet<String>,
-}
+/// Which Claude Code collapsibles are open, owned by the app.
+pub type ClaudeCodeState = Disclosures;
 
-impl ClaudeCodeState {
-    /// Every collapsible in `open` starts open.
-    pub fn with_open(open: impl IntoIterator<Item = String>) -> Self {
-        Self {
-            open: open.into_iter().collect(),
-        }
-    }
-
-    pub fn is_open(&self, id: &str) -> bool {
-        self.open.contains(id)
-    }
-
-    pub fn toggle(&mut self, id: &str) {
-        if !self.open.remove(id) {
-            self.open.insert(id.to_owned());
-        }
-    }
-}
-
-/// A Base UI collapsible trigger: a focusable button that toggles `id`.
+/// A Base UI collapsible trigger in Claude Code's focus ring.
 fn trigger<S: 'static>(
     id: &str,
     open: bool,
     p: &ClaudeCodePalette,
     lens: impl Fn(&mut S) -> &mut ClaudeCodeState + Copy + 'static,
 ) -> El {
-    let key = id.to_owned();
-    row()
-        .key(format!("{id}-trigger"))
-        .role("button")
-        .expanded(open)
-        .focusable(true)
-        .radius(model::FOCUS_RADIUS)
-        .focus_ring(model::FOCUS_RING, 0.0, p.muted.fade(0.6).rune())
-        .cursor(::rune::Cursor::Pointer)
-        .hover_group()
-        .on_press(move |s: &mut S| lens(s).toggle(&key))
+    disclosure_trigger(
+        id,
+        open,
+        p.muted.fade(0.6),
+        model::FOCUS_RING,
+        model::FOCUS_RADIUS,
+        lens,
+    )
 }
 
 /// The terminal window: chrome, a scrolling transcript and an optional pinned prompt.

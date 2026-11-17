@@ -28,11 +28,13 @@ use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
 mod claude_code;
+mod codex;
 mod terminal;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;
 pub use claude_code::*;
+pub use codex::*;
 pub use terminal::*;
 
 /// Every bundled face, for `AppSpec::fonts`.

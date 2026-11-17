@@ -6,6 +6,7 @@
 
 mod button;
 mod claude_code;
+mod codex;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -23,7 +24,11 @@ pub struct Page {
 }
 
 fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
-    vec![button::page(window, cx), claude_code::page(window, cx)]
+    vec![
+        button::page(window, cx),
+        claude_code::page(window, cx),
+        codex::page(window, cx),
+    ]
 }
 
 struct Gallery {

@@ -1,7 +1,7 @@
 //! Shared Rune pieces of the terminal blocks: styled monospace text, the window
 //! chrome and glyph spinners.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::sync::{Mutex, OnceLock};
 
 use ::rune::tok::{Family, TextStyle};
@@ -46,6 +46,54 @@ pub fn rich_text(rich_runs: &Rich, style: TextStyle) -> El {
         e = e.color(color.rune());
     }
     e
+}
+
+/// Which collapsibles are open, by id; the app owns it.
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Disclosures {
+    open: HashSet<String>,
+}
+
+impl Disclosures {
+    /// Every collapsible in `open` starts open.
+    pub fn with_open(open: impl IntoIterator<Item = String>) -> Self {
+        Self {
+            open: open.into_iter().collect(),
+        }
+    }
+
+    pub fn is_open(&self, id: &str) -> bool {
+        self.open.contains(id)
+    }
+
+    pub fn toggle(&mut self, id: &str) {
+        if !self.open.remove(id) {
+            self.open.insert(id.to_owned());
+        }
+    }
+}
+
+/// A Base UI collapsible trigger: a focusable button toggling `id` in the
+/// [`Disclosures`] that `lens` reaches, with a `ring`-coloured focus ring.
+pub fn disclosure_trigger<S: 'static>(
+    id: &str,
+    open: bool,
+    ring: crate::theme::Color,
+    ring_width: f32,
+    radius: f32,
+    lens: impl Fn(&mut S) -> &mut Disclosures + Copy + 'static,
+) -> El {
+    let key = id.to_owned();
+    row()
+        .key(format!("{id}-trigger"))
+        .role("button")
+        .expanded(open)
+        .focusable(true)
+        .radius(radius)
+        .focus_ring(ring_width, 0.0, ring.rune())
+        .cursor(::rune::Cursor::Pointer)
+        .hover_group()
+        .on_press(move |s: &mut S| lens(s).toggle(&key))
 }
 
 /// One line of the terminals' monospace text.

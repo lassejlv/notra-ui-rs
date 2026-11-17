@@ -5,15 +5,17 @@ use std::sync::Arc;
 use std::time::Instant;
 
 use ::gpui::{
-    AnyElement, App, Context, ElementId, EventEmitter, FocusHandle, FontFeatures, FontStyle,
-    FontWeight, HighlightStyle, InteractiveElement, IntoElement, KeyDownEvent, ParentElement,
-    RenderOnce, ScrollHandle, SharedString, StatefulInteractiveElement, StrikethroughStyle, Styled,
-    StyledText, UnderlineStyle, Window, div, prelude::*, px,
+    AnyElement, App, Context, Div, ElementId, Entity, EventEmitter, FocusHandle, FontFeatures,
+    FontStyle, FontWeight, HighlightStyle, InteractiveElement, IntoElement, KeyDownEvent,
+    ParentElement, RenderOnce, ScrollHandle, SharedString, Stateful, StatefulInteractiveElement,
+    StrikethroughStyle, Styled, StyledText, UnderlineStyle, Window, div, prelude::*, px,
 };
 
 use super::{ActiveTheme, shadows};
 use crate::components::terminal::{self, ChromePalette, FrameCycle, Rich, chrome};
 use crate::fonts;
+use crate::motion::{Animated, Tween};
+use crate::theme::Shadow;
 
 /// Monospace without ligatures or contextual alternates: `--` stays two hyphens.
 pub fn code_features() -> FontFeatures {
@@ -304,6 +306,62 @@ pub fn pulse_opacity(id: impl Into<ElementId>, window: &mut Window, cx: &mut App
         .read(cx);
     window.request_animation_frame();
     terminal::pulse_opacity(started.elapsed())
+}
+
+/// A collapsible's open state, focus and eased hover, kept per element.
+pub struct Disclosure {
+    pub open: bool,
+    pub focus: FocusHandle,
+    pub hover: Animated,
+}
+
+/// The [`Disclosure`] of the collapsible keyed by `id`; `hover` eases its hover value.
+pub fn disclosure(
+    id: &ElementId,
+    default_open: bool,
+    hover: Tween,
+    window: &mut Window,
+    cx: &mut App,
+) -> Entity<Disclosure> {
+    window.use_keyed_state(id.clone(), cx, |_, cx| Disclosure {
+        open: default_open,
+        focus: cx.focus_handle(),
+        hover: Animated::new(0.0, hover),
+    })
+}
+
+/// A Base UI collapsible trigger: focusable, toggles on click, Enter and Space, with
+/// `ring` drawn while focused from the keyboard.
+pub fn disclosure_trigger(
+    id: ElementId,
+    state: &Entity<Disclosure>,
+    ring: Shadow,
+    radius: f32,
+    cx: &App,
+) -> Stateful<Div> {
+    let focus = state.read(cx).focus.clone();
+    let toggle = state.clone();
+    let hover = state.clone();
+    div()
+        .id(id)
+        .track_focus(&focus)
+        .tab_stop(true)
+        .rounded(px(radius))
+        .cursor_pointer()
+        .focus_visible(move |s| s.shadow(shadows(&[ring])))
+        .on_hover(move |hovered, _, cx| {
+            hover.update(cx, |s, cx| {
+                s.hover
+                    .set(if *hovered { 1.0 } else { 0.0 }, Instant::now());
+                cx.notify();
+            });
+        })
+        .on_click(move |_, _, cx| {
+            toggle.update(cx, |s, cx| {
+                s.open = !s.open;
+                cx.notify();
+            });
+        })
 }
 
 /// What a [`PromptInput`] reports to the view that owns it.
