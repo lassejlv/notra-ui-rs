@@ -13,8 +13,10 @@ use crate::motion::{Tween, ease, lerp};
 
 pub mod dialog;
 pub mod menu;
+pub mod popover;
 pub mod select;
 pub mod toast;
+pub mod tooltip;
 
 /// The side of its anchor a popup sits on.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Default)]
