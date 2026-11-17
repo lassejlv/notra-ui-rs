@@ -5,6 +5,7 @@
 //! ```
 
 mod button;
+mod chat_minimap;
 mod composer;
 mod input;
 
@@ -28,6 +29,7 @@ fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
         button::page(window, cx),
         composer::page(window, cx),
         input::page(window, cx),
+        chat_minimap::page(window, cx),
     ]
 }
 

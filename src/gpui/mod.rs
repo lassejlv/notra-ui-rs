@@ -27,11 +27,14 @@ use crate::icons::Icon;
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod chat_minimap;
 mod composer;
 mod input;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
+pub use crate::components::chat_minimap::{ChatMinimapItem, ChatMinimapSide};
 pub use button::Button;
+pub use chat_minimap::ChatMinimap;
 pub use composer::{
     ChipLead, ComposerChip, ComposerFrame, ComposerInput, ComposerNotice, ComposerNudge,
     ComposerSend, ComposerToolbar, ComposerToolbarButton,

@@ -27,9 +27,12 @@ use crate::motion::{CubicBezier, Tween};
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod chat_minimap;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
+pub use crate::components::chat_minimap::{ChatMinimapItem, ChatMinimapSide};
 pub use button::Button;
+pub use chat_minimap::{ChatMinimap, ChatMinimapState};
 
 /// Every bundled face, for `AppSpec::fonts`.
 pub const FONTS: &[&[u8]] = fonts::ALL;

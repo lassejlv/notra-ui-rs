@@ -32,6 +32,7 @@ pub enum Icon {
     Map,
     Maximize,
     Mic,
+    MinimapChevron,
     Pencil,
     Play,
     Plus,
@@ -79,6 +80,7 @@ impl Icon {
         Icon::Map,
         Icon::Maximize,
         Icon::Mic,
+        Icon::MinimapChevron,
         Icon::Pencil,
         Icon::Play,
         Icon::Plus,
@@ -126,6 +128,7 @@ impl Icon {
             Icon::Map => "map",
             Icon::Maximize => "maximize",
             Icon::Mic => "mic",
+            Icon::MinimapChevron => "minimap-chevron",
             Icon::Pencil => "pencil",
             Icon::Play => "play",
             Icon::Plus => "plus",
@@ -176,6 +179,7 @@ impl Icon {
             Icon::Map => include_str!("../assets/icons/map.svg"),
             Icon::Maximize => include_str!("../assets/icons/maximize.svg"),
             Icon::Mic => include_str!("../assets/icons/mic.svg"),
+            Icon::MinimapChevron => include_str!("../assets/icons/minimap-chevron.svg"),
             Icon::Pencil => include_str!("../assets/icons/pencil.svg"),
             Icon::Play => include_str!("../assets/icons/play.svg"),
             Icon::Plus => include_str!("../assets/icons/plus.svg"),
@@ -279,6 +283,9 @@ impl Icon {
             Icon::Mic => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#
             }
+            Icon::MinimapChevron => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.8 17.4 12 7.2l10.2 10.2" /></g>"#
+            }
             Icon::Pencil => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#
             }
@@ -357,6 +364,7 @@ impl Icon {
             Icon::Map => 24.0,
             Icon::Maximize => 24.0,
             Icon::Mic => 24.0,
+            Icon::MinimapChevron => 24.0,
             Icon::Pencil => 24.0,
             Icon::Play => 24.0,
             Icon::Plus => 24.0,
@@ -405,6 +413,7 @@ impl Icon {
             Icon::Map => "notra/icons/map.svg",
             Icon::Maximize => "notra/icons/maximize.svg",
             Icon::Mic => "notra/icons/mic.svg",
+            Icon::MinimapChevron => "notra/icons/minimap-chevron.svg",
             Icon::Pencil => "notra/icons/pencil.svg",
             Icon::Play => "notra/icons/play.svg",
             Icon::Plus => "notra/icons/plus.svg",
@@ -571,6 +580,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         name: "mic",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#,
+    },
+    ::rune::Icon {
+        name: "minimap-chevron",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.8 17.4 12 7.2l10.2 10.2" /></g>"#,
     },
     ::rune::Icon {
         name: "pencil",

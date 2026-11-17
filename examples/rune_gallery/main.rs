@@ -8,19 +8,24 @@
 //! ```
 
 mod button;
+mod chat_minimap;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
 use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[
+    ("button", "Button", button::view),
+    ("chat-minimap", "Chat Minimap", chat_minimap::view),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub chat_minimap: chat_minimap::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -176,6 +181,24 @@ fn spec() -> AppSpec<State> {
             ("button-loading", |s| {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
+            }),
+            ("chat-minimap", |s| page_scene("chat-minimap", false)(s)),
+            ("chat-minimap-dark", |s| page_scene("chat-minimap", true)(s)),
+            ("chat-minimap-left", |s| {
+                page_scene("chat-minimap", false)(s);
+                s.chat_minimap = chat_minimap::Demo::hovering(1, 3);
+            }),
+            ("chat-minimap-long", |s| {
+                page_scene("chat-minimap", false)(s);
+                s.chat_minimap = chat_minimap::Demo::focused(2);
+            }),
+            ("chat-minimap-hover", |s| {
+                page_scene("chat-minimap", false)(s);
+                s.chat_minimap = chat_minimap::Demo::hovering(0, 2);
+            }),
+            ("chat-minimap-hover-dark", |s| {
+                page_scene("chat-minimap", true)(s);
+                s.chat_minimap = chat_minimap::Demo::hovering(0, 2);
             }),
         ],
         fonts: FONTS,
