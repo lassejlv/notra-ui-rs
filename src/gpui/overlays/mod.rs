@@ -27,10 +27,21 @@ use ::gpui::{
     deferred, div, point, prelude::*, px,
 };
 
+use crate::components::overlays::menu::HIGHLIGHT;
 use crate::components::overlays::place;
+
+mod menu;
+mod select;
+
+pub use crate::components::overlays::menu::{ItemKind, MenuEntry, MenuItem};
+pub use crate::components::overlays::select::{
+    SelectEntry, SelectOption, SelectSize, SelectVariant,
+};
 pub use crate::components::overlays::{
     Align, Avoid, Collision, Placed, Placement, PopupFrame, PopupMotion, Presence, Rect, Side,
 };
+pub use menu::DropdownMenu;
+pub use select::Select;
 
 /// The window bounds of a trigger, captured while it prepaints so a popup can anchor to it.
 /// Clones share one cell.
@@ -50,7 +61,7 @@ impl AnchorBounds {
 
     /// An invisible element that records its parent's bounds; add it as the last child of a
     /// `relative()` trigger or wrapper.
-    pub fn tracker(&self) -> impl IntoElement {
+    pub fn tracker(&self) -> impl IntoElement + use<> {
         let cell = self.0.clone();
         canvas(move |bounds, _, _| cell.set(Some(bounds)), |_, _, _, _| {})
             .absolute()
@@ -80,6 +91,7 @@ pub enum Dismiss {
 
 type Content = Box<dyn FnOnce(&Placed, &mut Window, &mut App) -> AnyElement>;
 type DismissHandler = Rc<dyn Fn(Dismiss, &mut Window, &mut App)>;
+type KeyHandler = Box<dyn Fn(&KeyDownEvent, &mut Window, &mut App) -> bool>;
 
 /// A floating surface anchored to a trigger, drawn above the window with `deferred`.
 ///
@@ -100,6 +112,7 @@ pub struct Popup {
     priority: usize,
     content: Option<Content>,
     on_dismiss: Option<DismissHandler>,
+    on_key: Option<KeyHandler>,
 }
 
 impl Popup {
@@ -116,6 +129,7 @@ impl Popup {
             priority: 1,
             content: None,
             on_dismiss: None,
+            on_key: None,
         }
     }
 
@@ -163,6 +177,16 @@ impl Popup {
         content: impl FnOnce(&Placed, &mut Window, &mut App) -> AnyElement + 'static,
     ) -> Self {
         self.content = Some(Box::new(content));
+        self
+    }
+
+    /// Keys pressed while the popup has focus, before Escape dismisses it; return `true` when
+    /// handled (a menu closing a submenu on Escape).
+    pub fn on_key(
+        mut self,
+        handler: impl Fn(&KeyDownEvent, &mut Window, &mut App) -> bool + 'static,
+    ) -> Self {
+        self.on_key = Some(Box::new(handler));
         self
     }
 
@@ -225,7 +249,7 @@ impl RenderOnce for Popup {
         let visible = s.presence.is_visible(&motion, now);
         let (Some(anchor), Some(content), true) = (self.anchor.rect(), self.content, visible)
         else {
-            return div().into_any_element();
+            return div().absolute().into_any_element();
         };
         if s.presence.is_animating(&motion, now) || s.size.is_none() {
             window.request_animation_frame();
@@ -260,6 +284,7 @@ impl RenderOnce for Popup {
         let measure_state = state.clone();
         let on_dismiss = self.on_dismiss;
         let outside = on_dismiss.clone();
+        let on_key = self.on_key;
         let anchor_bounds = self.anchor.clone();
 
         let surface = div()
@@ -288,6 +313,10 @@ impl RenderOnce for Popup {
                     }
                 })
                 .on_key_down(move |event: &KeyDownEvent, window, cx| {
+                    if on_key.as_ref().is_some_and(|f| f(event, window, cx)) {
+                        cx.stop_propagation();
+                        return;
+                    }
                     if event.keystroke.key == "escape"
                         && let Some(handler) = &on_dismiss
                     {
@@ -309,5 +338,38 @@ impl RenderOnce for Popup {
         )
         .with_priority(self.priority)
         .into_any_element()
+    }
+}
+
+/// A row's highlight fading between rows (`transition-colors duration-75`).
+#[derive(Clone, Copy, Default)]
+pub(crate) struct Fade {
+    current: Option<usize>,
+    previous: Option<usize>,
+    since: Option<Instant>,
+}
+
+impl Fade {
+    pub(crate) fn sync(&mut self, to: Option<usize>, now: Instant) {
+        if to != self.current {
+            self.previous = self.current;
+            self.current = to;
+            self.since = Some(now);
+        }
+    }
+
+    pub(crate) fn amount(&self, index: usize, now: Instant) -> f32 {
+        let p = self.since.map_or(1.0, |at| HIGHLIGHT.progress(now - at));
+        if self.current == Some(index) {
+            p
+        } else if self.previous == Some(index) {
+            1.0 - p
+        } else {
+            0.0
+        }
+    }
+
+    pub(crate) fn is_animating(&self, now: Instant) -> bool {
+        self.since.is_some_and(|at| !HIGHLIGHT.is_done(now - at))
     }
 }

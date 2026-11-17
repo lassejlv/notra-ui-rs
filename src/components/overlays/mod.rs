@@ -11,6 +11,9 @@ use std::time::{Duration, Instant};
 
 use crate::motion::{Tween, ease, lerp};
 
+pub mod menu;
+pub mod select;
+
 /// The side of its anchor a popup sits on.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Default)]
 pub enum Side {
