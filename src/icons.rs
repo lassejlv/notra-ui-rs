@@ -19,19 +19,40 @@ pub enum Icon {
     Globe,
     HugeArrowLeft01,
     HugeArrowRight01,
+    HugeBookOpen01,
+    HugeBuilding03,
+    HugeCalendar03,
+    HugeChartAnalysis,
+    HugeFeedback,
+    HugeHome01,
     HugeInformationCircle,
+    HugeLogout01,
+    HugeMessage01,
+    HugeNote,
+    HugePlusSign,
+    HugePrompt,
+    HugeSearchList01,
     HugeSearch,
+    HugeSettings01,
+    HugeSidebarLeft01,
+    HugeSidebarRight01,
     HugeUnfoldMore,
+    HugeUser,
+    HugeWebDesign01,
+    HugeWorkflowSquare03,
+    Link,
     LockKeyhole,
     Mail,
     Map,
     Maximize,
     Mic,
+    NotraAgent,
     Pencil,
     Play,
     Plus,
     RotateCcw,
     Search,
+    Send,
     Square,
     ThumbsDown,
     ThumbsUp,
@@ -60,19 +81,40 @@ impl Icon {
         Icon::Globe,
         Icon::HugeArrowLeft01,
         Icon::HugeArrowRight01,
+        Icon::HugeBookOpen01,
+        Icon::HugeBuilding03,
+        Icon::HugeCalendar03,
+        Icon::HugeChartAnalysis,
+        Icon::HugeFeedback,
+        Icon::HugeHome01,
         Icon::HugeInformationCircle,
+        Icon::HugeLogout01,
+        Icon::HugeMessage01,
+        Icon::HugeNote,
+        Icon::HugePlusSign,
+        Icon::HugePrompt,
+        Icon::HugeSearchList01,
         Icon::HugeSearch,
+        Icon::HugeSettings01,
+        Icon::HugeSidebarLeft01,
+        Icon::HugeSidebarRight01,
         Icon::HugeUnfoldMore,
+        Icon::HugeUser,
+        Icon::HugeWebDesign01,
+        Icon::HugeWorkflowSquare03,
+        Icon::Link,
         Icon::LockKeyhole,
         Icon::Mail,
         Icon::Map,
         Icon::Maximize,
         Icon::Mic,
+        Icon::NotraAgent,
         Icon::Pencil,
         Icon::Play,
         Icon::Plus,
         Icon::RotateCcw,
         Icon::Search,
+        Icon::Send,
         Icon::Square,
         Icon::ThumbsDown,
         Icon::ThumbsUp,
@@ -101,19 +143,40 @@ impl Icon {
             Icon::Globe => "globe",
             Icon::HugeArrowLeft01 => "huge-arrow-left-01",
             Icon::HugeArrowRight01 => "huge-arrow-right-01",
+            Icon::HugeBookOpen01 => "huge-book-open-01",
+            Icon::HugeBuilding03 => "huge-building-03",
+            Icon::HugeCalendar03 => "huge-calendar-03",
+            Icon::HugeChartAnalysis => "huge-chart-analysis",
+            Icon::HugeFeedback => "huge-feedback",
+            Icon::HugeHome01 => "huge-home-01",
             Icon::HugeInformationCircle => "huge-information-circle",
+            Icon::HugeLogout01 => "huge-logout-01",
+            Icon::HugeMessage01 => "huge-message-01",
+            Icon::HugeNote => "huge-note",
+            Icon::HugePlusSign => "huge-plus-sign",
+            Icon::HugePrompt => "huge-prompt",
+            Icon::HugeSearchList01 => "huge-search-list-01",
             Icon::HugeSearch => "huge-search",
+            Icon::HugeSettings01 => "huge-settings-01",
+            Icon::HugeSidebarLeft01 => "huge-sidebar-left-01",
+            Icon::HugeSidebarRight01 => "huge-sidebar-right-01",
             Icon::HugeUnfoldMore => "huge-unfold-more",
+            Icon::HugeUser => "huge-user",
+            Icon::HugeWebDesign01 => "huge-web-design-01",
+            Icon::HugeWorkflowSquare03 => "huge-workflow-square-03",
+            Icon::Link => "link",
             Icon::LockKeyhole => "lock-keyhole",
             Icon::Mail => "mail",
             Icon::Map => "map",
             Icon::Maximize => "maximize",
             Icon::Mic => "mic",
+            Icon::NotraAgent => "notra-agent",
             Icon::Pencil => "pencil",
             Icon::Play => "play",
             Icon::Plus => "plus",
             Icon::RotateCcw => "rotate-ccw",
             Icon::Search => "search",
+            Icon::Send => "send",
             Icon::Square => "square",
             Icon::ThumbsDown => "thumbs-down",
             Icon::ThumbsUp => "thumbs-up",
@@ -143,21 +206,44 @@ impl Icon {
             Icon::Globe => include_str!("../assets/icons/globe.svg"),
             Icon::HugeArrowLeft01 => include_str!("../assets/icons/huge-arrow-left-01.svg"),
             Icon::HugeArrowRight01 => include_str!("../assets/icons/huge-arrow-right-01.svg"),
+            Icon::HugeBookOpen01 => include_str!("../assets/icons/huge-book-open-01.svg"),
+            Icon::HugeBuilding03 => include_str!("../assets/icons/huge-building-03.svg"),
+            Icon::HugeCalendar03 => include_str!("../assets/icons/huge-calendar-03.svg"),
+            Icon::HugeChartAnalysis => include_str!("../assets/icons/huge-chart-analysis.svg"),
+            Icon::HugeFeedback => include_str!("../assets/icons/huge-feedback.svg"),
+            Icon::HugeHome01 => include_str!("../assets/icons/huge-home-01.svg"),
             Icon::HugeInformationCircle => {
                 include_str!("../assets/icons/huge-information-circle.svg")
             }
+            Icon::HugeLogout01 => include_str!("../assets/icons/huge-logout-01.svg"),
+            Icon::HugeMessage01 => include_str!("../assets/icons/huge-message-01.svg"),
+            Icon::HugeNote => include_str!("../assets/icons/huge-note.svg"),
+            Icon::HugePlusSign => include_str!("../assets/icons/huge-plus-sign.svg"),
+            Icon::HugePrompt => include_str!("../assets/icons/huge-prompt.svg"),
+            Icon::HugeSearchList01 => include_str!("../assets/icons/huge-search-list-01.svg"),
             Icon::HugeSearch => include_str!("../assets/icons/huge-search.svg"),
+            Icon::HugeSettings01 => include_str!("../assets/icons/huge-settings-01.svg"),
+            Icon::HugeSidebarLeft01 => include_str!("../assets/icons/huge-sidebar-left-01.svg"),
+            Icon::HugeSidebarRight01 => include_str!("../assets/icons/huge-sidebar-right-01.svg"),
             Icon::HugeUnfoldMore => include_str!("../assets/icons/huge-unfold-more.svg"),
+            Icon::HugeUser => include_str!("../assets/icons/huge-user.svg"),
+            Icon::HugeWebDesign01 => include_str!("../assets/icons/huge-web-design-01.svg"),
+            Icon::HugeWorkflowSquare03 => {
+                include_str!("../assets/icons/huge-workflow-square-03.svg")
+            }
+            Icon::Link => include_str!("../assets/icons/link.svg"),
             Icon::LockKeyhole => include_str!("../assets/icons/lock-keyhole.svg"),
             Icon::Mail => include_str!("../assets/icons/mail.svg"),
             Icon::Map => include_str!("../assets/icons/map.svg"),
             Icon::Maximize => include_str!("../assets/icons/maximize.svg"),
             Icon::Mic => include_str!("../assets/icons/mic.svg"),
+            Icon::NotraAgent => include_str!("../assets/icons/notra-agent.svg"),
             Icon::Pencil => include_str!("../assets/icons/pencil.svg"),
             Icon::Play => include_str!("../assets/icons/play.svg"),
             Icon::Plus => include_str!("../assets/icons/plus.svg"),
             Icon::RotateCcw => include_str!("../assets/icons/rotate-ccw.svg"),
             Icon::Search => include_str!("../assets/icons/search.svg"),
+            Icon::Send => include_str!("../assets/icons/send.svg"),
             Icon::Square => include_str!("../assets/icons/square.svg"),
             Icon::ThumbsDown => include_str!("../assets/icons/thumbs-down.svg"),
             Icon::ThumbsUp => include_str!("../assets/icons/thumbs-up.svg"),
@@ -216,14 +302,71 @@ impl Icon {
             Icon::HugeArrowRight01 => {
                 r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
             }
+            Icon::HugeBookOpen01 => {
+                r#"<g fill="none"><path d="M7.99978 3.5H6.60021C4.43183 3.5 3.34764 3.5 2.67399 4.17362C2.00034 4.84724 2.00029 5.93144 2.00021 8.09982L2 13.3998C1.99992 15.5684 1.99987 16.6526 2.67353 17.3263C3.34719 18 4.43146 18 6.6 18H8.95042C10.4329 18 11.7092 19.0464 11.9999 20.5V5.5C11.0556 4.24097 9.99989 3.5 7.99978 3.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M16.0001 3.5H17.3997C19.5681 3.5 20.6523 3.5 21.3259 4.17362C21.9996 4.84724 21.9996 5.93144 21.9997 8.09982L21.9999 13.3998C22 15.5684 22 16.6526 21.3264 17.3263C20.6527 18 19.5684 18 17.3999 18H15.0495C13.567 18 12.2907 19.0464 12 20.5V5.5C12.9443 4.24097 14 3.5 16.0001 3.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeBuilding03 => {
+                r#"<g fill="none"><path d="M16 10L18.1494 10.6448C19.5226 11.0568 20.2092 11.2628 20.6046 11.7942C21 12.3256 21 13.0425 21 14.4761V22" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M8 9L11 9M8 13L11 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 22V19C12 18.0572 12 17.5858 11.7071 17.2929C11.4142 17 10.9428 17 10 17H9C8.05719 17 7.58579 17 7.29289 17.2929C7 17.5858 7 18.0572 7 19V22" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M2 22L22 22" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M3 22V6.71724C3 4.20649 3 2.95111 3.79118 2.32824C4.58237 1.70537 5.74742 2.04355 8.07752 2.7199L13.0775 4.17122C14.4836 4.57937 15.1867 4.78344 15.5933 5.33965C16 5.89587 16 6.65344 16 8.16857V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeCalendar03 => {
+                r#"<g fill="none"><path d="M16 2V6M8 2V6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 10H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.1258 14H12.0008M12.1258 18H12.0008M7.625 14H7.5M7.625 18H7.5M16.625 14H16.5M12.2508 14C12.2508 14.1381 12.1389 14.25 12.0008 14.25C11.8628 14.25 11.7508 14.1381 11.7508 14C11.7508 13.8619 11.8628 13.75 12.0008 13.75C12.1389 13.75 12.2508 13.8619 12.2508 14ZM12.2508 18C12.2508 18.1381 12.1389 18.25 12.0008 18.25C11.8628 18.25 11.7508 18.1381 11.7508 18C11.7508 17.8619 11.8628 17.75 12.0008 17.75C12.1389 17.75 12.2508 17.8619 12.2508 18ZM7.75 14C7.75 14.1381 7.63807 14.25 7.5 14.25C7.36193 14.25 7.25 14.1381 7.25 14C7.25 13.8619 7.36193 13.75 7.5 13.75C7.63807 13.75 7.75 13.8619 7.75 14ZM7.75 18C7.75 18.1381 7.63807 18.25 7.5 18.25C7.36193 18.25 7.25 18.1381 7.25 18C7.25 17.8619 7.36193 17.75 7.5 17.75C7.63807 17.75 7.75 17.8619 7.75 18ZM16.75 14C16.75 14.1381 16.6381 14.25 16.5 14.25C16.3619 14.25 16.25 14.1381 16.25 14C16.25 13.8619 16.3619 13.75 16.5 13.75C16.6381 13.75 16.75 13.8619 16.75 14Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeChartAnalysis => {
+                r#"<g fill="none"><path d="M3 11L5.5 8.5C6.51706 7.48294 7.02558 6.97442 7.63723 6.8616C7.87705 6.81737 8.12295 6.81737 8.36277 6.8616C8.97442 6.97442 9.48295 7.48295 10.5 8.5C11.5171 9.51705 12.0256 10.0256 12.6372 10.1384C12.8771 10.1826 13.1229 10.1826 13.3628 10.1384C13.9744 10.0256 14.4829 9.51705 15.5 8.5L21 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 15V21M9 13V21M15 16V21M21 9V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeFeedback => {
+                r#"<g fill="none"><path d="M8 13.5H16M8 8.5H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M6.09881 19C4.7987 18.8721 3.82475 18.4816 3.17157 17.8284C2 16.6569 2 14.7712 2 11V10.5C2 6.72876 2 4.84315 3.17157 3.67157C4.34315 2.5 6.22876 2.5 10 2.5H14C17.7712 2.5 19.6569 2.5 20.8284 3.67157C22 4.84315 22 6.72876 22 10.5V11C22 14.7712 22 16.6569 20.8284 17.8284C19.6569 19 17.7712 19 14 19C13.4395 19.0125 12.9931 19.0551 12.5546 19.155C11.3562 19.4309 10.2465 20.0441 9.14987 20.5789C7.58729 21.3408 6.806 21.7218 6.31569 21.3651C5.37769 20.6665 6.29454 18.5019 6.5 17.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeHome01 => {
+                r#"<g fill="none"><path d="M3 11.9896V14.5C3 17.7998 3 19.4497 4.02513 20.4749C5.05025 21.5 6.70017 21.5 10 21.5H14C17.2998 21.5 18.9497 21.5 19.9749 20.4749C21 19.4497 21 17.7998 21 14.5V11.9896C21 10.3083 21 9.46773 20.6441 8.74005C20.2882 8.01237 19.6247 7.49628 18.2976 6.46411L16.2976 4.90855C14.2331 3.30285 13.2009 2.5 12 2.5C10.7991 2.5 9.76689 3.30285 7.70242 4.90855L5.70241 6.46411C4.37533 7.49628 3.71179 8.01237 3.3559 8.74005C3 9.46773 3 10.3083 3 11.9896Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
             Icon::HugeInformationCircle => {
                 r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeLogout01 => {
+                r#"<g fill="none"><path d="M15.5 8.04045C15.4588 6.87972 15.3216 6.15451 14.8645 5.58671C14.2114 4.77536 13.0944 4.52064 10.8605 4.01121L9.85915 3.78286C6.4649 3.00882 4.76777 2.6218 3.63388 3.51317C2.5 4.40454 2.5 6.1257 2.5 9.56803V14.432C2.5 17.8743 2.5 19.5955 3.63388 20.4868C4.76777 21.3782 6.4649 20.9912 9.85915 20.2171L10.8605 19.9888C13.0944 19.4794 14.2114 19.2246 14.8645 18.4133C15.3216 17.8455 15.4588 17.1203 15.5 15.9595" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18.5 9.01172C18.5 9.01172 21.5 11.2212 21.5 12.0117C21.5 12.8023 18.5 15.0117 18.5 15.0117M21 12.0117H8.49998" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeMessage01 => {
+                r#"<g fill="none"><path d="M8.5 14.5H15.5M8.5 9.5H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeNote => {
+                r#"<g fill="none"><path d="M12.8809 7.01656L17.6538 8.28825M11.8578 10.8134L14.2442 11.4492M11.9765 17.9664L12.9311 18.2208C15.631 18.9401 16.981 19.2998 18.0445 18.6893C19.108 18.0787 19.4698 16.7363 20.1932 14.0516L21.2163 10.2548C21.9398 7.57005 22.3015 6.22768 21.6875 5.17016C21.0735 4.11264 19.7235 3.75295 17.0235 3.03358L16.0689 2.77924C13.369 2.05986 12.019 1.70018 10.9555 2.31074C9.89196 2.9213 9.53023 4.26367 8.80678 6.94841L7.78366 10.7452C7.0602 13.4299 6.69848 14.7723 7.3125 15.8298C7.92652 16.8874 9.27651 17.2471 11.9765 17.9664Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M12 20.9462L11.0477 21.2055C8.35403 21.939 7.00722 22.3057 5.94619 21.6832C4.88517 21.0607 4.52429 19.692 3.80253 16.9546L2.78182 13.0833C2.06006 10.3459 1.69918 8.97718 2.31177 7.89892C2.84167 6.96619 4 7.00015 5.5 7.00003" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugePlusSign => {
+                r#"<g fill="none"><path d="M12 4V20M20 12H4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugePrompt => {
+                r#"<g fill="none"><path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M10.487 7.00098V8.98M7 10.5014H9.05198M15.0231 10.5014H17.075M15.0231 13.4746H17.075M7 13.4746H9.05198M10.487 15.0202V16.9992M13.5125 15.0202V16.9992M13.5017 7.00098V8.98M10.052 14.9685H14.0231C14.5753 14.9685 15.0231 14.5208 15.0231 13.9685V9.98C15.0231 9.42771 14.5753 8.98 14.0231 8.98H10.052C9.49969 8.98 9.05198 9.42771 9.05198 9.98V13.9685C9.05198 14.5208 9.49969 14.9685 10.052 14.9685Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeSearchList01 => {
+                r#"<g fill="none"><path d="M2.5 9H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2.5 14H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2.5 4H18.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18.5355 17.0355L21.5 20M20 13.5C20 10.7386 17.7614 8.5 15 8.5C12.2386 8.5 10 10.7386 10 13.5C10 16.2614 12.2386 18.5 15 18.5C17.7614 18.5 20 16.2614 20 13.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
             }
             Icon::HugeSearch => {
                 r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
             }
+            Icon::HugeSettings01 => {
+                r#"<g fill="none"><path d="M21.3175 7.14139L20.8239 6.28479C20.4506 5.63696 20.264 5.31305 19.9464 5.18388C19.6288 5.05472 19.2696 5.15664 18.5513 5.36048L17.3311 5.70418C16.8725 5.80994 16.3913 5.74994 15.9726 5.53479L15.6357 5.34042C15.2766 5.11043 15.0004 4.77133 14.8475 4.37274L14.5136 3.37536C14.294 2.71534 14.1842 2.38533 13.9228 2.19657C13.6615 2.00781 13.3143 2.00781 12.6199 2.00781H11.5051C10.8108 2.00781 10.4636 2.00781 10.2022 2.19657C9.94085 2.38533 9.83106 2.71534 9.61149 3.37536L9.27753 4.37274C9.12465 4.77133 8.84845 5.11043 8.48937 5.34042L8.15249 5.53479C7.73374 5.74994 7.25259 5.80994 6.79398 5.70418L5.57375 5.36048C4.85541 5.15664 4.49625 5.05472 4.17867 5.18388C3.86109 5.31305 3.67445 5.63696 3.30115 6.28479L2.80757 7.14139C2.45766 7.74864 2.2827 8.05227 2.31666 8.37549C2.35061 8.69871 2.58483 8.95918 3.05326 9.48012L4.0843 10.6328C4.3363 10.9518 4.51521 11.5078 4.51521 12.0077C4.51521 12.5078 4.33636 13.0636 4.08433 13.3827L3.05326 14.5354C2.58483 15.0564 2.35062 15.3168 2.31666 15.6401C2.2827 15.9633 2.45766 16.2669 2.80757 16.8741L3.30114 17.7307C3.67443 18.3785 3.86109 18.7025 4.17867 18.8316C4.49625 18.9608 4.85542 18.8589 5.57377 18.655L6.79394 18.3113C7.25263 18.2055 7.73387 18.2656 8.15267 18.4808L8.4895 18.6752C8.84851 18.9052 9.12464 19.2442 9.2775 19.6428L9.61149 20.6403C9.83106 21.3003 9.94085 21.6303 10.2022 21.8191C10.4636 22.0078 10.8108 22.0078 11.5051 22.0078H12.6199C13.3143 22.0078 13.6615 22.0078 13.9228 21.8191C14.1842 21.6303 14.294 21.3003 14.5136 20.6403L14.8476 19.6428C15.0004 19.2442 15.2765 18.9052 15.6356 18.6752L15.9724 18.4808C16.3912 18.2656 16.8724 18.2055 17.3311 18.3113L18.5513 18.655C19.2696 18.8589 19.6288 18.9608 19.9464 18.8316C20.264 18.7025 20.4506 18.3785 20.8239 17.7307L21.3175 16.8741C21.6674 16.2669 21.8423 15.9633 21.8084 15.6401C21.7744 15.3168 21.5402 15.0564 21.0718 14.5354L20.0407 13.3827C19.7887 13.0636 19.6098 12.5078 19.6098 12.0077C19.6098 11.5078 19.7888 10.9518 20.0407 10.6328L21.0718 9.48012C21.5402 8.95918 21.7744 8.69871 21.8084 8.37549C21.8423 8.05227 21.6674 7.74864 21.3175 7.14139Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M15.5195 12C15.5195 13.933 13.9525 15.5 12.0195 15.5C10.0865 15.5 8.51953 13.933 8.51953 12C8.51953 10.067 10.0865 8.5 12.0195 8.5C13.9525 8.5 15.5195 10.067 15.5195 12Z" stroke="currentColor" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeSidebarLeft01 => {
+                r#"<g fill="none"><path d="M2 12C2 8.25027 2 6.3754 2.95491 5.06107C3.26331 4.6366 3.6366 4.26331 4.06107 3.95491C5.3754 3 7.25027 3 11 3H13C16.7497 3 18.6246 3 19.9389 3.95491C20.3634 4.26331 20.7367 4.6366 21.0451 5.06107C22 6.3754 22 8.25027 22 12C22 15.7497 22 17.6246 21.0451 18.9389C20.7367 19.3634 20.3634 19.7367 19.9389 20.0451C18.6246 21 16.7497 21 13 21H11C7.25027 21 5.3754 21 4.06107 20.0451C3.6366 19.7367 3.26331 19.3634 2.95491 18.9389C2 17.6246 2 15.7497 2 12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M9.5 3.5L9.5 20.5" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 7C5 7 5.91421 7 6.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 11H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M17 10L15.7735 11.0572C15.2578 11.5016 15 11.7239 15 12C15 12.2761 15.2578 12.4984 15.7735 12.9428L17 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></g>"#
+            }
+            Icon::HugeSidebarRight01 => {
+                r#"<g fill="none"><path d="M22 12C22 8.25027 22 6.3754 21.0451 5.06107C20.7367 4.6366 20.3634 4.26331 19.9389 3.95491C18.6246 3 16.7497 3 13 3H11C7.25027 3 5.3754 3 4.06107 3.95491C3.6366 4.26331 3.26331 4.6366 2.95491 5.06107C2 6.3754 2 8.25027 2 12C2 15.7497 2 17.6246 2.95491 18.9389C3.26331 19.3634 3.6366 19.7367 4.06107 20.0451C5.3754 21 7.25027 21 11 21H13C16.7497 21 18.6246 21 19.9389 20.0451C20.3634 19.7367 20.7367 19.3634 21.0451 18.9389C22 17.6246 22 15.7497 22 12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M14.5 3.5L14.5 20.5" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M19 7H17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M19 11H17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M8 10L9.22654 11.0572C9.74218 11.5016 10 11.7239 10 12C10 12.2761 9.74218 12.4984 9.22654 12.9428L8 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></g>"#
+            }
             Icon::HugeUnfoldMore => {
                 r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeUser => {
+                r#"<g fill="none"><path d="M20 21.0001C19.713 17.269 16.7289 14.3151 12.995 14.0662L12 13.9999C11.6446 14.0096 11.3134 14.0225 11.0008 14.0378C7.3 14.2192 4.28417 17.3057 4 21.0001" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><circle cx="12" cy="6.99988" r="4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeWebDesign01 => {
+                r#"<g fill="none"><path d="M3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3C16.2426 3 18.364 3 19.682 4.31802C21 5.63604 21 7.75736 21 12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682C3 18.364 3 16.2426 3 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3.5 8H20.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 12L17 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 16H15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M9 8V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::HugeWorkflowSquare03 => {
+                r#"<g fill="none"><path d="M3 4C3 2.34533 3.34533 2 5 2H9C10.6547 2 11 2.34533 11 4C11 5.65467 10.6547 6 9 6H5C3.34533 6 3 5.65467 3 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M13 13C13 11.3453 13.3453 11 15 11H19C20.6547 11 21 11.3453 21 13C21 14.6547 20.6547 15 19 15H15C13.3453 15 13 14.6547 13 13Z" stroke="currentColor" stroke-width="1.5"/><path d="M4 20C4 18.3453 4.34533 18 6 18H10C11.6547 18 12 18.3453 12 20C12 21.6547 11.6547 22 10 22H6C4.34533 22 4 21.6547 4 20Z" stroke="currentColor" stroke-width="1.5"/><path d="M17 11C17 10.5353 17 10.303 16.9616 10.1098C16.8038 9.31644 16.1836 8.69624 15.3902 8.53843C15.197 8.5 14.9647 8.5 14.5 8.5H9.5C9.03534 8.5 8.80302 8.5 8.60982 8.46157C7.81644 8.30376 7.19624 7.68356 7.03843 6.89018C7 6.69698 7 6.46466 7 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M17 15V16C17 17.8856 17 18.8284 16.4142 19.4142C15.8284 20 14.8856 20 13 20H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#
+            }
+            Icon::Link => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></g>"#
             }
             Icon::LockKeyhole => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></g>"#
@@ -240,6 +383,9 @@ impl Icon {
             Icon::Mic => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#
             }
+            Icon::NotraAgent => {
+                r#"<g fill="currentColor"><circle cx="12" cy="12" r="2.9"/><circle cx="12" cy="5" r="2.1"/><circle cx="19" cy="12" r="2.1"/><circle cx="12" cy="19" r="2.1"/><circle cx="5" cy="12" r="2.1"/><circle cx="5" cy="5" r="1.35"/><circle cx="19" cy="5" r="1.35"/><circle cx="19" cy="19" r="1.35"/><circle cx="5" cy="19" r="1.35"/></g>"#
+            }
             Icon::Pencil => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#
             }
@@ -254,6 +400,9 @@ impl Icon {
             }
             Icon::Search => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#
+            }
+            Icon::Send => {
+                r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></g>"#
             }
             Icon::Square => {
                 r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /></g>"#
@@ -302,19 +451,40 @@ impl Icon {
             Icon::Globe => 24.0,
             Icon::HugeArrowLeft01 => 24.0,
             Icon::HugeArrowRight01 => 24.0,
+            Icon::HugeBookOpen01 => 24.0,
+            Icon::HugeBuilding03 => 24.0,
+            Icon::HugeCalendar03 => 24.0,
+            Icon::HugeChartAnalysis => 24.0,
+            Icon::HugeFeedback => 24.0,
+            Icon::HugeHome01 => 24.0,
             Icon::HugeInformationCircle => 24.0,
+            Icon::HugeLogout01 => 24.0,
+            Icon::HugeMessage01 => 24.0,
+            Icon::HugeNote => 24.0,
+            Icon::HugePlusSign => 24.0,
+            Icon::HugePrompt => 24.0,
+            Icon::HugeSearchList01 => 24.0,
             Icon::HugeSearch => 24.0,
+            Icon::HugeSettings01 => 24.0,
+            Icon::HugeSidebarLeft01 => 24.0,
+            Icon::HugeSidebarRight01 => 24.0,
             Icon::HugeUnfoldMore => 24.0,
+            Icon::HugeUser => 24.0,
+            Icon::HugeWebDesign01 => 24.0,
+            Icon::HugeWorkflowSquare03 => 24.0,
+            Icon::Link => 24.0,
             Icon::LockKeyhole => 24.0,
             Icon::Mail => 24.0,
             Icon::Map => 24.0,
             Icon::Maximize => 24.0,
             Icon::Mic => 24.0,
+            Icon::NotraAgent => 24.0,
             Icon::Pencil => 24.0,
             Icon::Play => 24.0,
             Icon::Plus => 24.0,
             Icon::RotateCcw => 24.0,
             Icon::Search => 24.0,
+            Icon::Send => 24.0,
             Icon::Square => 24.0,
             Icon::ThumbsDown => 24.0,
             Icon::ThumbsUp => 24.0,
@@ -344,19 +514,40 @@ impl Icon {
             Icon::Globe => "notra/icons/globe.svg",
             Icon::HugeArrowLeft01 => "notra/icons/huge-arrow-left-01.svg",
             Icon::HugeArrowRight01 => "notra/icons/huge-arrow-right-01.svg",
+            Icon::HugeBookOpen01 => "notra/icons/huge-book-open-01.svg",
+            Icon::HugeBuilding03 => "notra/icons/huge-building-03.svg",
+            Icon::HugeCalendar03 => "notra/icons/huge-calendar-03.svg",
+            Icon::HugeChartAnalysis => "notra/icons/huge-chart-analysis.svg",
+            Icon::HugeFeedback => "notra/icons/huge-feedback.svg",
+            Icon::HugeHome01 => "notra/icons/huge-home-01.svg",
             Icon::HugeInformationCircle => "notra/icons/huge-information-circle.svg",
+            Icon::HugeLogout01 => "notra/icons/huge-logout-01.svg",
+            Icon::HugeMessage01 => "notra/icons/huge-message-01.svg",
+            Icon::HugeNote => "notra/icons/huge-note.svg",
+            Icon::HugePlusSign => "notra/icons/huge-plus-sign.svg",
+            Icon::HugePrompt => "notra/icons/huge-prompt.svg",
+            Icon::HugeSearchList01 => "notra/icons/huge-search-list-01.svg",
             Icon::HugeSearch => "notra/icons/huge-search.svg",
+            Icon::HugeSettings01 => "notra/icons/huge-settings-01.svg",
+            Icon::HugeSidebarLeft01 => "notra/icons/huge-sidebar-left-01.svg",
+            Icon::HugeSidebarRight01 => "notra/icons/huge-sidebar-right-01.svg",
             Icon::HugeUnfoldMore => "notra/icons/huge-unfold-more.svg",
+            Icon::HugeUser => "notra/icons/huge-user.svg",
+            Icon::HugeWebDesign01 => "notra/icons/huge-web-design-01.svg",
+            Icon::HugeWorkflowSquare03 => "notra/icons/huge-workflow-square-03.svg",
+            Icon::Link => "notra/icons/link.svg",
             Icon::LockKeyhole => "notra/icons/lock-keyhole.svg",
             Icon::Mail => "notra/icons/mail.svg",
             Icon::Map => "notra/icons/map.svg",
             Icon::Maximize => "notra/icons/maximize.svg",
             Icon::Mic => "notra/icons/mic.svg",
+            Icon::NotraAgent => "notra/icons/notra-agent.svg",
             Icon::Pencil => "notra/icons/pencil.svg",
             Icon::Play => "notra/icons/play.svg",
             Icon::Plus => "notra/icons/plus.svg",
             Icon::RotateCcw => "notra/icons/rotate-ccw.svg",
             Icon::Search => "notra/icons/search.svg",
+            Icon::Send => "notra/icons/send.svg",
             Icon::Square => "notra/icons/square.svg",
             Icon::ThumbsDown => "notra/icons/thumbs-down.svg",
             Icon::ThumbsUp => "notra/icons/thumbs-up.svg",
@@ -454,9 +645,69 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         body: r#"<g fill="none"><path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
     },
     ::rune::Icon {
+        name: "huge-book-open-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M7.99978 3.5H6.60021C4.43183 3.5 3.34764 3.5 2.67399 4.17362C2.00034 4.84724 2.00029 5.93144 2.00021 8.09982L2 13.3998C1.99992 15.5684 1.99987 16.6526 2.67353 17.3263C3.34719 18 4.43146 18 6.6 18H8.95042C10.4329 18 11.7092 19.0464 11.9999 20.5V5.5C11.0556 4.24097 9.99989 3.5 7.99978 3.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M16.0001 3.5H17.3997C19.5681 3.5 20.6523 3.5 21.3259 4.17362C21.9996 4.84724 21.9996 5.93144 21.9997 8.09982L21.9999 13.3998C22 15.5684 22 16.6526 21.3264 17.3263C20.6527 18 19.5684 18 17.3999 18H15.0495C13.567 18 12.2907 19.0464 12 20.5V5.5C12.9443 4.24097 14 3.5 16.0001 3.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-building-03",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M16 10L18.1494 10.6448C19.5226 11.0568 20.2092 11.2628 20.6046 11.7942C21 12.3256 21 13.0425 21 14.4761V22" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M8 9L11 9M8 13L11 13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 22V19C12 18.0572 12 17.5858 11.7071 17.2929C11.4142 17 10.9428 17 10 17H9C8.05719 17 7.58579 17 7.29289 17.2929C7 17.5858 7 18.0572 7 19V22" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M2 22L22 22" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M3 22V6.71724C3 4.20649 3 2.95111 3.79118 2.32824C4.58237 1.70537 5.74742 2.04355 8.07752 2.7199L13.0775 4.17122C14.4836 4.57937 15.1867 4.78344 15.5933 5.33965C16 5.89587 16 6.65344 16 8.16857V22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-calendar-03",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M16 2V6M8 2V6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 4H11C7.22876 4 5.34315 4 4.17157 5.17157C3 6.34315 3 8.22876 3 12V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V12C21 8.22876 21 6.34315 19.8284 5.17157C18.6569 4 16.7712 4 13 4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 10H21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.1258 14H12.0008M12.1258 18H12.0008M7.625 14H7.5M7.625 18H7.5M16.625 14H16.5M12.2508 14C12.2508 14.1381 12.1389 14.25 12.0008 14.25C11.8628 14.25 11.7508 14.1381 11.7508 14C11.7508 13.8619 11.8628 13.75 12.0008 13.75C12.1389 13.75 12.2508 13.8619 12.2508 14ZM12.2508 18C12.2508 18.1381 12.1389 18.25 12.0008 18.25C11.8628 18.25 11.7508 18.1381 11.7508 18C11.7508 17.8619 11.8628 17.75 12.0008 17.75C12.1389 17.75 12.2508 17.8619 12.2508 18ZM7.75 14C7.75 14.1381 7.63807 14.25 7.5 14.25C7.36193 14.25 7.25 14.1381 7.25 14C7.25 13.8619 7.36193 13.75 7.5 13.75C7.63807 13.75 7.75 13.8619 7.75 14ZM7.75 18C7.75 18.1381 7.63807 18.25 7.5 18.25C7.36193 18.25 7.25 18.1381 7.25 18C7.25 17.8619 7.36193 17.75 7.5 17.75C7.63807 17.75 7.75 17.8619 7.75 18ZM16.75 14C16.75 14.1381 16.6381 14.25 16.5 14.25C16.3619 14.25 16.25 14.1381 16.25 14C16.25 13.8619 16.3619 13.75 16.5 13.75C16.6381 13.75 16.75 13.8619 16.75 14Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-chart-analysis",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M3 11L5.5 8.5C6.51706 7.48294 7.02558 6.97442 7.63723 6.8616C7.87705 6.81737 8.12295 6.81737 8.36277 6.8616C8.97442 6.97442 9.48295 7.48295 10.5 8.5C11.5171 9.51705 12.0256 10.0256 12.6372 10.1384C12.8771 10.1826 13.1229 10.1826 13.3628 10.1384C13.9744 10.0256 14.4829 9.51705 15.5 8.5L21 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 15V21M9 13V21M15 16V21M21 9V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-feedback",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M8 13.5H16M8 8.5H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M6.09881 19C4.7987 18.8721 3.82475 18.4816 3.17157 17.8284C2 16.6569 2 14.7712 2 11V10.5C2 6.72876 2 4.84315 3.17157 3.67157C4.34315 2.5 6.22876 2.5 10 2.5H14C17.7712 2.5 19.6569 2.5 20.8284 3.67157C22 4.84315 22 6.72876 22 10.5V11C22 14.7712 22 16.6569 20.8284 17.8284C19.6569 19 17.7712 19 14 19C13.4395 19.0125 12.9931 19.0551 12.5546 19.155C11.3562 19.4309 10.2465 20.0441 9.14987 20.5789C7.58729 21.3408 6.806 21.7218 6.31569 21.3651C5.37769 20.6665 6.29454 18.5019 6.5 17.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-home-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M3 11.9896V14.5C3 17.7998 3 19.4497 4.02513 20.4749C5.05025 21.5 6.70017 21.5 10 21.5H14C17.2998 21.5 18.9497 21.5 19.9749 20.4749C21 19.4497 21 17.7998 21 14.5V11.9896C21 10.3083 21 9.46773 20.6441 8.74005C20.2882 8.01237 19.6247 7.49628 18.2976 6.46411L16.2976 4.90855C14.2331 3.30285 13.2009 2.5 12 2.5C10.7991 2.5 9.76689 3.30285 7.70242 4.90855L5.70241 6.46411C4.37533 7.49628 3.71179 8.01237 3.3559 8.74005C3 9.46773 3 10.3083 3 11.9896Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
         name: "huge-information-circle",
         view: 24.0,
         body: r#"<g fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 16V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12.125 8.25H12M12.25 8.25C12.25 8.11193 12.1381 8 12 8C11.8619 8 11.75 8.11193 11.75 8.25C11.75 8.38807 11.8619 8.5 12 8.5C12.1381 8.5 12.25 8.38807 12.25 8.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-logout-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M15.5 8.04045C15.4588 6.87972 15.3216 6.15451 14.8645 5.58671C14.2114 4.77536 13.0944 4.52064 10.8605 4.01121L9.85915 3.78286C6.4649 3.00882 4.76777 2.6218 3.63388 3.51317C2.5 4.40454 2.5 6.1257 2.5 9.56803V14.432C2.5 17.8743 2.5 19.5955 3.63388 20.4868C4.76777 21.3782 6.4649 20.9912 9.85915 20.2171L10.8605 19.9888C13.0944 19.4794 14.2114 19.2246 14.8645 18.4133C15.3216 17.8455 15.4588 17.1203 15.5 15.9595" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18.5 9.01172C18.5 9.01172 21.5 11.2212 21.5 12.0117C21.5 12.8023 18.5 15.0117 18.5 15.0117M21 12.0117H8.49998" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-message-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M8.5 14.5H15.5M8.5 9.5H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-note",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M12.8809 7.01656L17.6538 8.28825M11.8578 10.8134L14.2442 11.4492M11.9765 17.9664L12.9311 18.2208C15.631 18.9401 16.981 19.2998 18.0445 18.6893C19.108 18.0787 19.4698 16.7363 20.1932 14.0516L21.2163 10.2548C21.9398 7.57005 22.3015 6.22768 21.6875 5.17016C21.0735 4.11264 19.7235 3.75295 17.0235 3.03358L16.0689 2.77924C13.369 2.05986 12.019 1.70018 10.9555 2.31074C9.89196 2.9213 9.53023 4.26367 8.80678 6.94841L7.78366 10.7452C7.0602 13.4299 6.69848 14.7723 7.3125 15.8298C7.92652 16.8874 9.27651 17.2471 11.9765 17.9664Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M12 20.9462L11.0477 21.2055C8.35403 21.939 7.00722 22.3057 5.94619 21.6832C4.88517 21.0607 4.52429 19.692 3.80253 16.9546L2.78182 13.0833C2.06006 10.3459 1.69918 8.97718 2.31177 7.89892C2.84167 6.96619 4 7.00015 5.5 7.00003" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-plus-sign",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M12 4V20M20 12H4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-prompt",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M14.1706 20.8905C18.3536 20.6125 21.6856 17.2332 21.9598 12.9909C22.0134 12.1607 22.0134 11.3009 21.9598 10.4707C21.6856 6.22838 18.3536 2.84913 14.1706 2.57107C12.7435 2.47621 11.2536 2.47641 9.8294 2.57107C5.64639 2.84913 2.31441 6.22838 2.04024 10.4707C1.98659 11.3009 1.98659 12.1607 2.04024 12.9909C2.1401 14.536 2.82343 15.9666 3.62791 17.1746C4.09501 18.0203 3.78674 19.0758 3.30021 19.9978C2.94941 20.6626 2.77401 20.995 2.91484 21.2351C3.05568 21.4752 3.37026 21.4829 3.99943 21.4982C5.24367 21.5285 6.08268 21.1757 6.74868 20.6846C7.1264 20.4061 7.31527 20.2668 7.44544 20.2508C7.5756 20.2348 7.83177 20.3403 8.34401 20.5513C8.8044 20.7409 9.33896 20.8579 9.8294 20.8905C11.2536 20.9852 12.7435 20.9854 14.1706 20.8905Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/><path d="M10.487 7.00098V8.98M7 10.5014H9.05198M15.0231 10.5014H17.075M15.0231 13.4746H17.075M7 13.4746H9.05198M10.487 15.0202V16.9992M13.5125 15.0202V16.9992M13.5017 7.00098V8.98M10.052 14.9685H14.0231C14.5753 14.9685 15.0231 14.5208 15.0231 13.9685V9.98C15.0231 9.42771 14.5753 8.98 14.0231 8.98H10.052C9.49969 8.98 9.05198 9.42771 9.05198 9.98V13.9685C9.05198 14.5208 9.49969 14.9685 10.052 14.9685Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-search-list-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M2.5 9H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2.5 14H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2.5 4H18.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18.5355 17.0355L21.5 20M20 13.5C20 10.7386 17.7614 8.5 15 8.5C12.2386 8.5 10 10.7386 10 13.5C10 16.2614 12.2386 18.5 15 18.5C17.7614 18.5 20 16.2614 20 13.5Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
     },
     ::rune::Icon {
         name: "huge-search",
@@ -464,9 +715,44 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         body: r#"<g fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
     },
     ::rune::Icon {
+        name: "huge-settings-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M21.3175 7.14139L20.8239 6.28479C20.4506 5.63696 20.264 5.31305 19.9464 5.18388C19.6288 5.05472 19.2696 5.15664 18.5513 5.36048L17.3311 5.70418C16.8725 5.80994 16.3913 5.74994 15.9726 5.53479L15.6357 5.34042C15.2766 5.11043 15.0004 4.77133 14.8475 4.37274L14.5136 3.37536C14.294 2.71534 14.1842 2.38533 13.9228 2.19657C13.6615 2.00781 13.3143 2.00781 12.6199 2.00781H11.5051C10.8108 2.00781 10.4636 2.00781 10.2022 2.19657C9.94085 2.38533 9.83106 2.71534 9.61149 3.37536L9.27753 4.37274C9.12465 4.77133 8.84845 5.11043 8.48937 5.34042L8.15249 5.53479C7.73374 5.74994 7.25259 5.80994 6.79398 5.70418L5.57375 5.36048C4.85541 5.15664 4.49625 5.05472 4.17867 5.18388C3.86109 5.31305 3.67445 5.63696 3.30115 6.28479L2.80757 7.14139C2.45766 7.74864 2.2827 8.05227 2.31666 8.37549C2.35061 8.69871 2.58483 8.95918 3.05326 9.48012L4.0843 10.6328C4.3363 10.9518 4.51521 11.5078 4.51521 12.0077C4.51521 12.5078 4.33636 13.0636 4.08433 13.3827L3.05326 14.5354C2.58483 15.0564 2.35062 15.3168 2.31666 15.6401C2.2827 15.9633 2.45766 16.2669 2.80757 16.8741L3.30114 17.7307C3.67443 18.3785 3.86109 18.7025 4.17867 18.8316C4.49625 18.9608 4.85542 18.8589 5.57377 18.655L6.79394 18.3113C7.25263 18.2055 7.73387 18.2656 8.15267 18.4808L8.4895 18.6752C8.84851 18.9052 9.12464 19.2442 9.2775 19.6428L9.61149 20.6403C9.83106 21.3003 9.94085 21.6303 10.2022 21.8191C10.4636 22.0078 10.8108 22.0078 11.5051 22.0078H12.6199C13.3143 22.0078 13.6615 22.0078 13.9228 21.8191C14.1842 21.6303 14.294 21.3003 14.5136 20.6403L14.8476 19.6428C15.0004 19.2442 15.2765 18.9052 15.6356 18.6752L15.9724 18.4808C16.3912 18.2656 16.8724 18.2055 17.3311 18.3113L18.5513 18.655C19.2696 18.8589 19.6288 18.9608 19.9464 18.8316C20.264 18.7025 20.4506 18.3785 20.8239 17.7307L21.3175 16.8741C21.6674 16.2669 21.8423 15.9633 21.8084 15.6401C21.7744 15.3168 21.5402 15.0564 21.0718 14.5354L20.0407 13.3827C19.7887 13.0636 19.6098 12.5078 19.6098 12.0077C19.6098 11.5078 19.7888 10.9518 20.0407 10.6328L21.0718 9.48012C21.5402 8.95918 21.7744 8.69871 21.8084 8.37549C21.8423 8.05227 21.6674 7.74864 21.3175 7.14139Z" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M15.5195 12C15.5195 13.933 13.9525 15.5 12.0195 15.5C10.0865 15.5 8.51953 13.933 8.51953 12C8.51953 10.067 10.0865 8.5 12.0195 8.5C13.9525 8.5 15.5195 10.067 15.5195 12Z" stroke="currentColor" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-sidebar-left-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M2 12C2 8.25027 2 6.3754 2.95491 5.06107C3.26331 4.6366 3.6366 4.26331 4.06107 3.95491C5.3754 3 7.25027 3 11 3H13C16.7497 3 18.6246 3 19.9389 3.95491C20.3634 4.26331 20.7367 4.6366 21.0451 5.06107C22 6.3754 22 8.25027 22 12C22 15.7497 22 17.6246 21.0451 18.9389C20.7367 19.3634 20.3634 19.7367 19.9389 20.0451C18.6246 21 16.7497 21 13 21H11C7.25027 21 5.3754 21 4.06107 20.0451C3.6366 19.7367 3.26331 19.3634 2.95491 18.9389C2 17.6246 2 15.7497 2 12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M9.5 3.5L9.5 20.5" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 7C5 7 5.91421 7 6.5 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M5 11H6.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M17 10L15.7735 11.0572C15.2578 11.5016 15 11.7239 15 12C15 12.2761 15.2578 12.4984 15.7735 12.9428L17 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-sidebar-right-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M22 12C22 8.25027 22 6.3754 21.0451 5.06107C20.7367 4.6366 20.3634 4.26331 19.9389 3.95491C18.6246 3 16.7497 3 13 3H11C7.25027 3 5.3754 3 4.06107 3.95491C3.6366 4.26331 3.26331 4.6366 2.95491 5.06107C2 6.3754 2 8.25027 2 12C2 15.7497 2 17.6246 2.95491 18.9389C3.26331 19.3634 3.6366 19.7367 4.06107 20.0451C5.3754 21 7.25027 21 11 21H13C16.7497 21 18.6246 21 19.9389 20.0451C20.3634 19.7367 20.7367 19.3634 21.0451 18.9389C22 17.6246 22 15.7497 22 12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M14.5 3.5L14.5 20.5" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/><path d="M19 7H17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M19 11H17.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/><path d="M8 10L9.22654 11.0572C9.74218 11.5016 10 11.7239 10 12C10 12.2761 9.74218 12.4984 9.22654 12.9428L8 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></g>"#,
+    },
+    ::rune::Icon {
         name: "huge-unfold-more",
         view: 24.0,
         body: r#"<g fill="none"><path d="M18 14C18 14 13.5811 19 12 19C10.4188 19 6 14 6 14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M18 9.99996C18 9.99996 13.5811 5.00001 12 5C10.4188 4.99999 6 10 6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-user",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M20 21.0001C19.713 17.269 16.7289 14.3151 12.995 14.0662L12 13.9999C11.6446 14.0096 11.3134 14.0225 11.0008 14.0378C7.3 14.2192 4.28417 17.3057 4 21.0001" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><circle cx="12" cy="6.99988" r="4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-web-design-01",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M3 12C3 7.75736 3 5.63604 4.31802 4.31802C5.63604 3 7.75736 3 12 3C16.2426 3 18.364 3 19.682 4.31802C21 5.63604 21 7.75736 21 12C21 16.2426 21 18.364 19.682 19.682C18.364 21 16.2426 21 12 21C7.75736 21 5.63604 21 4.31802 19.682C3 18.364 3 16.2426 3 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3.5 8H20.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 12L17 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M13 16H15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M9 8V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "huge-workflow-square-03",
+        view: 24.0,
+        body: r#"<g fill="none"><path d="M3 4C3 2.34533 3.34533 2 5 2H9C10.6547 2 11 2.34533 11 4C11 5.65467 10.6547 6 9 6H5C3.34533 6 3 5.65467 3 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M13 13C13 11.3453 13.3453 11 15 11H19C20.6547 11 21 11.3453 21 13C21 14.6547 20.6547 15 19 15H15C13.3453 15 13 14.6547 13 13Z" stroke="currentColor" stroke-width="1.5"/><path d="M4 20C4 18.3453 4.34533 18 6 18H10C11.6547 18 12 18.3453 12 20C12 21.6547 11.6547 22 10 22H6C4.34533 22 4 21.6547 4 20Z" stroke="currentColor" stroke-width="1.5"/><path d="M17 11C17 10.5353 17 10.303 16.9616 10.1098C16.8038 9.31644 16.1836 8.69624 15.3902 8.53843C15.197 8.5 14.9647 8.5 14.5 8.5H9.5C9.03534 8.5 8.80302 8.5 8.60982 8.46157C7.81644 8.30376 7.19624 7.68356 7.03843 6.89018C7 6.69698 7 6.46466 7 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M17 15V16C17 17.8856 17 18.8284 16.4142 19.4142C15.8284 20 14.8856 20 13 20H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g>"#,
+    },
+    ::rune::Icon {
+        name: "link",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></g>"#,
     },
     ::rune::Icon {
         name: "lock-keyhole",
@@ -494,6 +780,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v3" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><rect x="9" y="2" width="6" height="13" rx="3" /></g>"#,
     },
     ::rune::Icon {
+        name: "notra-agent",
+        view: 24.0,
+        body: r#"<g fill="currentColor"><circle cx="12" cy="12" r="2.9"/><circle cx="12" cy="5" r="2.1"/><circle cx="19" cy="12" r="2.1"/><circle cx="12" cy="19" r="2.1"/><circle cx="5" cy="12" r="2.1"/><circle cx="5" cy="5" r="1.35"/><circle cx="19" cy="5" r="1.35"/><circle cx="19" cy="19" r="1.35"/><circle cx="5" cy="19" r="1.35"/></g>"#,
+    },
+    ::rune::Icon {
         name: "pencil",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" /><path d="m15 5 4 4" /></g>"#,
@@ -517,6 +808,11 @@ static RUNE_ICONS: &[::rune::Icon] = &[
         name: "search",
         view: 24.0,
         body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></g>"#,
+    },
+    ::rune::Icon {
+        name: "send",
+        view: 24.0,
+        body: r#"<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></g>"#,
     },
     ::rune::Icon {
         name: "square",
