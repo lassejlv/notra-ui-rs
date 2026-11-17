@@ -44,8 +44,13 @@ impl RenderOnce for Heading {
             .wide
             .unwrap_or_else(|| f32::from(window.viewport_size().width) >= WIDE_BREAKPOINT);
         let m = self.size.metrics(wide);
+        let display = window
+            .text_system()
+            .all_font_names()
+            .iter()
+            .any(|name| name == fonts::DISPLAY);
         div()
-            .font_family(fonts::DISPLAY)
+            .font_family(if display { fonts::DISPLAY } else { fonts::SANS })
             .text_size(px(m.size))
             .line_height(px(m.line_height))
             .font_weight(FontWeight(m.weight))

@@ -136,6 +136,9 @@ pub struct StatusSkin {
 }
 
 impl StatusSkin {
+    /// The neutral badge is untinted in dark mode: the site's stylesheet sets
+    /// `--badge-secondary` to `color-mix(in oklab, var(--foreground) 10%, transparent)`
+    /// there, but the value computes to nothing in the browser, so it paints no fill.
     pub fn new(theme: &Theme, variant: StatusVariant, appearance: BadgeAppearance) -> Self {
         let dark = theme.is_dark();
         let tint = if dark { 0.2 } else { 0.1 };
@@ -150,7 +153,7 @@ impl StatusSkin {
         let skin = match variant {
             StatusVariant::Secondary => Self {
                 fill: if dark {
-                    theme.foreground.fade(0.1)
+                    Color::TRANSPARENT
                 } else {
                     theme.secondary
                 },
