@@ -5,6 +5,7 @@
 //! ```
 
 mod button;
+mod overlays_demo;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,

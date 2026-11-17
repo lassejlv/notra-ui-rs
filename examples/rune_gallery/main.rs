@@ -8,6 +8,7 @@
 //! ```
 
 mod button;
+mod overlays_demo;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
