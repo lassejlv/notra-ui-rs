@@ -31,6 +31,7 @@ mod card;
 mod code_block;
 pub mod data_parts;
 mod package_command;
+mod table;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use crate::components::card::CardVariant;
@@ -40,6 +41,7 @@ pub use button::Button;
 pub use card::{Card, CardEmpty, CardGrid, CardReveal, CardSection};
 pub use code_block::CodeBlock;
 pub use package_command::{PackageCommand, SelectedPackageManager};
+pub use table::{DataTable, Table, TableHead};
 
 static LIGHT: Theme = Theme::light();
 

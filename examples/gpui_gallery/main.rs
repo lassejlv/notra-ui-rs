@@ -8,6 +8,7 @@ mod button;
 mod card;
 mod code_block;
 mod package_command;
+mod table;
 
 use gpui::{
     AnyView, App, AppContext as _, Bounds, Context, FontWeight, IntoElement, ParentElement, Render,
@@ -30,6 +31,7 @@ fn pages(window: &mut Window, cx: &mut App) -> Vec<Page> {
         card::page(window, cx),
         code_block::page(window, cx),
         package_command::page(window, cx),
+        table::page(window, cx),
     ]
 }
 

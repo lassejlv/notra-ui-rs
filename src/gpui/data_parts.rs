@@ -54,6 +54,27 @@ pub(crate) fn use_eased(
     (state, value)
 }
 
+/// An eased value retargeted to `target` on every render, for state-driven transitions.
+pub(crate) fn use_target(
+    id: impl Into<ElementId>,
+    tween: Tween,
+    target: f32,
+    window: &mut Window,
+    cx: &mut App,
+) -> f32 {
+    let state = window.use_keyed_state(id.into(), cx, |_, _| Eased(Animated::new(target, tween)));
+    let now = Instant::now();
+    state.update(cx, |s, _| s.0.set(target, now));
+    let anim = state.read(cx).0;
+    if cx.reduce_motion() {
+        return target;
+    }
+    if anim.is_animating(now) {
+        window.request_animation_frame();
+    }
+    anim.value(now)
+}
+
 /// A hover listener that eases `state` to 1 on enter and back to 0 on leave.
 pub(crate) fn ease_on_hover(state: Entity<Eased>) -> impl Fn(&bool, &mut Window, &mut App) {
     move |hovered, _, cx| {
@@ -201,13 +222,16 @@ impl RenderOnce for Shimmer {
     }
 }
 
+type ToggleHandler = Rc<dyn Fn(&mut Window, &mut App)>;
+
 /// The base-ui checkbox.
 #[derive(IntoElement)]
 pub struct Checkbox {
     id: ElementId,
     state: CheckState,
     ink: Option<Color>,
-    on_toggle: Option<Rc<dyn Fn(&mut Window, &mut App)>>,
+    label: Option<SharedString>,
+    on_toggle: Option<ToggleHandler>,
 }
 
 impl Checkbox {
@@ -216,6 +240,7 @@ impl Checkbox {
             id: id.into(),
             state,
             ink: None,
+            label: None,
             on_toggle: None,
         }
     }
@@ -223,6 +248,12 @@ impl Checkbox {
     /// The colour the mixed state's check takes (the surrounding text colour).
     pub fn ink(mut self, ink: Color) -> Self {
         self.ink = Some(ink);
+        self
+    }
+
+    /// The accessible name.
+    pub fn label(mut self, label: impl Into<SharedString>) -> Self {
+        self.label = Some(label.into());
         self
     }
 
@@ -268,6 +299,7 @@ impl RenderOnce for Checkbox {
         div()
             .id(self.id)
             .role(Role::CheckBox)
+            .when_some(self.label, |d, label| d.aria_label(label))
             .aria_toggled(match self.state {
                 CheckState::On => Toggled::True,
                 CheckState::Off => Toggled::False,
