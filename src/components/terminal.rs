@@ -5,6 +5,7 @@
 use std::ops::Range;
 use std::time::Duration;
 
+use crate::motion::{Loop, ease, keyframes};
 use crate::theme::{Color, Shadow};
 
 /// The advance of one monospace cell (`1ch`) in em: Geist Mono and the site's
@@ -231,6 +232,18 @@ impl FrameCycle {
         let n = self.count.max(1) as f32;
         (index as f32 / n, (index + 1) as f32 / n)
     }
+}
+
+/// Tailwind's `animate-pulse`: opacity 1 → 0.5 → 1 every 2 s, on the pulse curve.
+pub const PULSE: Loop = Loop::new(Duration::from_secs(2), ease::PULSE);
+
+/// The opacity of an `animate-pulse` element `elapsed` after it mounted.
+pub fn pulse_opacity(elapsed: Duration) -> f32 {
+    keyframes(
+        &[(0.0, 1.0), (0.5, 0.5), (1.0, 1.0)],
+        PULSE.easing,
+        PULSE.phase(elapsed),
+    )
 }
 
 /// The colours of a terminal window's chrome.

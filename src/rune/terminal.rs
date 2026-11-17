@@ -4,12 +4,20 @@
 use std::collections::HashMap;
 use std::sync::{Mutex, OnceLock};
 
-use ::rune::tok::TextStyle;
+use ::rune::tok::{Family, TextStyle};
 use ::rune::{El, ScrollSpec, Span, col, el, rich, row, text};
-use ::rune_motion::Cycle;
+use ::rune_motion::{Beat, CubicBezier, Cycle, Easing, LoopSpec, Sequence};
 
-use super::{ToRune, mono};
+use super::ToRune;
 use crate::components::terminal::{ChromePalette, FrameCycle, Rich, chrome};
+
+/// Geist Mono through Rune's monospace family (`AppSpec::families.1`), which keeps
+/// code free of ligatures (`--` stays two hyphens, as in a terminal).
+pub fn code_font(size: f32, weight: f32, line_height: f32) -> TextStyle {
+    TextStyle::new(size, weight)
+        .family(Family::Mono)
+        .lh(line_height)
+}
 
 /// [`Rich`] runs as one wrapping Rune text in `style`.
 pub fn rich_text(rich_runs: &Rich, style: TextStyle) -> El {
@@ -48,6 +56,7 @@ pub fn line(text_content: impl Into<String>, style: TextStyle, color: crate::the
 /// The window Claude Code and Codex draw: title bar, scrolling transcript and a
 /// footer pinned under it. The body's padding and gaps belong to the caller.
 pub struct TerminalWindow {
+    key: String,
     palette: ChromePalette,
     title: Option<String>,
     height: Option<f32>,
@@ -57,8 +66,10 @@ pub struct TerminalWindow {
 }
 
 impl TerminalWindow {
-    pub fn new(palette: ChromePalette) -> Self {
+    /// `key` names the window; its transcript scrolls under `{key}-body`.
+    pub fn new(key: impl Into<String>, palette: ChromePalette) -> Self {
         Self {
+            key: key.into(),
             palette,
             title: None,
             height: None,
@@ -104,7 +115,7 @@ impl TerminalWindow {
                 .gap(chrome::LIGHT_GAP),
             |r, i| {
                 r.child(
-                    el().key(format!("light-{i}"))
+                    el().key(format!("{}-light-{i}", self.key))
                         .size(chrome::LIGHT_SIZE, chrome::LIGHT_SIZE)
                         .radius(chrome::LIGHT_SIZE / 2.0)
                         .fill(p.traffic.rune()),
@@ -112,7 +123,7 @@ impl TerminalWindow {
             },
         );
         let mut bar = row()
-            .key("bar")
+            .key(format!("{}-bar", self.key))
             .h(chrome::BAR_HEIGHT)
             .w_full()
             .px(chrome::BAR_PADDING_X)
@@ -123,24 +134,24 @@ impl TerminalWindow {
         if let Some(title) = self.title {
             bar = bar.child(
                 text(title)
-                    .key("title")
-                    .font(mono(chrome::TITLE_SIZE, 400.0, chrome::TITLE_LINE))
+                    .key(format!("{}-title", self.key))
+                    .font(code_font(chrome::TITLE_SIZE, 400.0, chrome::TITLE_LINE))
                     .color(p.title.rune())
                     .single_line()
                     .truncate(),
             );
         }
-        let body = col()
-            .key("body")
+        let mut body = col()
+            .key(format!("{}-body", self.key))
             .w_full()
-            .grow(1.0)
-            .min_h(0.0)
-            .shrink()
-            .children(self.body)
-            .scroll(ScrollSpec {
+            .children(self.body);
+        if self.height.is_some() {
+            body = body.grow(1.0).min_h(0.0).shrink().scroll(ScrollSpec {
                 stick_bottom: self.follow,
             });
+        }
         let mut window = col()
+            .key(self.key)
             .w_full()
             .radius(chrome::RADIUS)
             .fill(p.background.rune())
@@ -158,9 +169,22 @@ impl TerminalWindow {
     }
 }
 
+const PULSE_BEATS: &[Beat] = &[
+    Beat::new(0.0).opacity(1.0).easing(PULSE_EASE),
+    Beat::new(1.0).opacity(0.5).easing(PULSE_EASE),
+    Beat::new(2.0).opacity(1.0).easing(PULSE_EASE),
+];
+const PULSE_EASE: Easing = Easing::CubicBezier(CubicBezier::new(0.4, 0.0, 0.6, 1.0));
+
+/// Tailwind's `animate-pulse` as a Rune loop: opacity 1 → 0.5 → 1 every 2 s.
+pub fn pulse() -> LoopSpec {
+    LoopSpec::sequence(Sequence::new(PULSE_BEATS))
+}
+
 /// A glyph spinner: every frame drawn in place, each shown during its slot of the
 /// loop by a stepped wall-clock opacity cycle, so it runs without view updates.
 pub fn frame_glyph(
+    key: &str,
     frames: &'static [&'static str],
     cycle: FrameCycle,
     style: TextStyle,
@@ -168,32 +192,36 @@ pub fn frame_glyph(
     paused: bool,
 ) -> El {
     let period = cycle.period().as_secs_f32();
-    frames.iter().enumerate().fold(el(), |stack, (i, glyph)| {
-        let mut layer = text(*glyph)
-            .key(format!("frame-{i}"))
-            .font(style)
-            .color(color.rune());
-        if paused {
-            layer = layer.opacity(if i == 0 { 1.0 } else { 0.0 });
-        } else {
-            layer = layer.cycle(Cycle {
-                period,
-                phase: 0.0,
-                stops: frame_stops(cycle, i),
-                still: if i == 0 { 1.0 } else { 0.0 },
-                fps: 1.0 / cycle.interval.as_secs_f32(),
-            });
-        }
-        if i > 0 {
-            layer = layer.pin(Some(0.0), Some(0.0), None, None);
-        }
-        stack.child(layer)
-    })
+    frames
+        .iter()
+        .enumerate()
+        .fold(el().key(key), |stack, (i, glyph)| {
+            let mut layer = text(*glyph)
+                .key(format!("{key}-frame-{i}"))
+                .font(style)
+                .color(color.rune());
+            if paused {
+                layer = layer.opacity(if i == 0 { 1.0 } else { 0.0 });
+            } else {
+                layer = layer.cycle(Cycle {
+                    period,
+                    phase: 0.0,
+                    stops: frame_stops(cycle, i),
+                    still: if i == 0 { 1.0 } else { 0.0 },
+                    fps: 1.0 / cycle.interval.as_secs_f32(),
+                });
+            }
+            if i > 0 {
+                layer = layer.pin(Some(0.0), Some(0.0), None, None);
+            }
+            stack.child(layer)
+        })
 }
 
 /// Opacity stops that show frame `index` during its slot and hide it elsewhere.
 fn frame_stops(cycle: FrameCycle, index: usize) -> &'static [(f32, f32)] {
-    static CACHE: OnceLock<Mutex<HashMap<(usize, usize), &'static [(f32, f32)]>>> = OnceLock::new();
+    type Stops = &'static [(f32, f32)];
+    static CACHE: OnceLock<Mutex<HashMap<(usize, usize), Stops>>> = OnceLock::new();
     let cache = CACHE.get_or_init(Default::default);
     let mut cache = cache.lock().unwrap_or_else(|e| e.into_inner());
     cache.entry((cycle.count, index)).or_insert_with(|| {

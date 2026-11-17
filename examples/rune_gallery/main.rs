@@ -8,19 +8,26 @@
 //! ```
 
 mod button;
+mod claude_code;
 
 use notra_ui::rune::{FAMILIES, FONTS, ToRune, sans};
 use notra_ui::{Appearance, Theme};
-use rune::{AppSpec, Cx, El, ScrollSpec, col, row, text};
+use rune::{AppSpec, Cx, El, ScrollSpec, Tx, col, row, text};
 
 /// Gallery pages, in sidebar order. Add a page: a module with `view` and a row here.
-pub const PAGES: &[(&str, &str, fn(&State, &Theme) -> El)] = &[("button", "Button", button::view)];
+pub type PageView = fn(&State, &Theme) -> El;
+
+pub const PAGES: &[(&str, &str, PageView)] = &[
+    ("button", "Button", button::view),
+    ("claude-code", "Claude Code", claude_code::view),
+];
 
 #[derive(Default)]
 pub struct State {
     pub page: usize,
     pub appearance: Option<Appearance>,
     pub button: button::Demo,
+    pub claude_code: claude_code::Demo,
 }
 
 fn view(s: &State, cx: &mut Cx<State>) -> El {
@@ -167,17 +174,35 @@ fn page_scene(slug: &str, dark: bool) -> impl Fn(&mut State) {
     }
 }
 
+/// Advances every page's timed playback; each page reports whether it changed.
+fn poll(s: &mut State, clock: f64, tx: &mut Tx) -> bool {
+    let mut changed = false;
+    changed |= claude_code::poll(s, clock, tx);
+    changed
+}
+
 fn spec() -> AppSpec<State> {
     AppSpec::<State> {
         min_size: Some((900.0, 600.0)),
         scenes: &[
             ("button", |s| page_scene("button", false)(s)),
             ("button-dark", |s| page_scene("button", true)(s)),
+            ("claude-code", |s| page_scene("claude-code", false)(s)),
+            ("claude-code-dark", |s| page_scene("claude-code", true)(s)),
+            ("claude-code-playing", |s| {
+                page_scene("claude-code", false)(s);
+                s.claude_code = claude_code::Demo::playing();
+            }),
+            ("claude-code-playing-dark", |s| {
+                page_scene("claude-code", true)(s);
+                s.claude_code = claude_code::Demo::playing();
+            }),
             ("button-loading", |s| {
                 page_scene("button", false)(s);
                 s.button = button::Demo::busy();
             }),
         ],
+        poll: Some(poll),
         fonts: FONTS,
         families: FAMILIES,
         ..AppSpec::new("Notra UI", (1200.0, 820.0), State::default, view)

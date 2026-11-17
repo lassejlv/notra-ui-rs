@@ -1,18 +1,24 @@
 //! Shared GPUI pieces of the terminal blocks: styled monospace text, the window
 //! chrome with its scroll area, glyph spinners and a keyboard-driven prompt input.
 
+use std::sync::Arc;
 use std::time::Instant;
 
 use ::gpui::{
-    AnyElement, App, Context, ElementId, EventEmitter, FocusHandle, FontStyle, FontWeight,
-    HighlightStyle, InteractiveElement, IntoElement, KeyDownEvent, ParentElement, RenderOnce,
-    ScrollHandle, SharedString, StatefulInteractiveElement, StrikethroughStyle, Styled, StyledText,
-    UnderlineStyle, Window, div, prelude::*, px,
+    AnyElement, App, Context, ElementId, EventEmitter, FocusHandle, FontFeatures, FontStyle,
+    FontWeight, HighlightStyle, InteractiveElement, IntoElement, KeyDownEvent, ParentElement,
+    RenderOnce, ScrollHandle, SharedString, StatefulInteractiveElement, StrikethroughStyle, Styled,
+    StyledText, UnderlineStyle, Window, div, prelude::*, px,
 };
 
 use super::{ActiveTheme, shadows};
-use crate::components::terminal::{ChromePalette, FrameCycle, Rich, chrome};
+use crate::components::terminal::{self, ChromePalette, FrameCycle, Rich, chrome};
 use crate::fonts;
+
+/// Monospace without ligatures or contextual alternates: `--` stays two hyphens.
+pub fn code_features() -> FontFeatures {
+    FontFeatures(Arc::new(vec![("liga".into(), 0), ("calt".into(), 0)]))
+}
 
 /// Paints [`Rich`] runs over the parent's monospace text style.
 pub fn rich_text(rich: &Rich) -> StyledText {
@@ -176,6 +182,7 @@ impl RenderOnce for TerminalWindow {
             .bg(p.background)
             .shadow(shadows(&chrome::shadows(&p)))
             .font_family(fonts::MONO)
+            .font_features(code_features())
             .text_size(px(self.font_size))
             .line_height(px(self.line_height))
             .child(bar)
@@ -284,6 +291,19 @@ impl RenderOnce for FrameGlyph {
             .id(self.id)
             .child(self.frames.get(frame).copied().unwrap_or_default())
     }
+}
+
+/// The opacity of an `animate-pulse` element keyed by `id`, counted from its first
+/// frame; keeps frames coming while it pulses.
+pub fn pulse_opacity(id: impl Into<ElementId>, window: &mut Window, cx: &mut App) -> f32 {
+    if cx.reduce_motion() {
+        return 1.0;
+    }
+    let started = *window
+        .use_keyed_state(id.into(), cx, |_, _| Instant::now())
+        .read(cx);
+    window.request_animation_frame();
+    terminal::pulse_opacity(started.elapsed())
 }
 
 /// What a [`PromptInput`] reports to the view that owns it.

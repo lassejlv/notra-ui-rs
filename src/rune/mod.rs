@@ -27,10 +27,12 @@ use crate::motion::{CubicBezier, Tween};
 use crate::theme::{Appearance, Color, Shadow, Theme};
 
 mod button;
+mod claude_code;
 mod terminal;
 
 pub use crate::components::button::{ButtonSize, ButtonVariant};
 pub use button::Button;
+pub use claude_code::*;
 pub use terminal::*;
 
 /// Every bundled face, for `AppSpec::fonts`.
